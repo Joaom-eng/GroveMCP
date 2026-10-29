@@ -1,0 +1,6 @@
+LIBRARY "McpServer.SA.asi"
+EXPORTS
+    McpBridge_GetApiVersion
+    McpBridge_PollCommand
+    McpBridge_ReportResult
+    McpBridge_ReportExecution

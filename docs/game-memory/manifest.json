@@ -1,0 +1,86 @@
+{
+  "file": "gta_sa.cme.json.gz",
+  "schema": {
+    "name": "cme.ida-ir",
+    "version": 1
+  },
+  "exporter": {
+    "name": "CME IDA Exporter",
+    "version": "0.1.0"
+  },
+  "generated_at_utc": "2026-10-18T15:19:05.284015+00:00",
+  "database": {
+    "idb_path": "gta_sa.i64",
+    "input_path": "gta_sa.exe",
+    "root_filename": "gta_sa.exe",
+    "input_size_bytes": 0,
+    "input_hashes": {
+      "crc32": "00000000",
+      "md5": "667f799c4ba8c9e1054fccaea6d4259b",
+      "sha256": null
+    },
+    "loader_format": "Portable executable for 80386 (PE)",
+    "ida_kernel_version": "9.0",
+    "initial_ida_version": null,
+    "initial_idb_version": 480,
+    "processor": "metapc",
+    "abi": null,
+    "address_bits": 32,
+    "big_endian": false,
+    "is_shared_object": false,
+    "image_base": {
+      "hex": "0x400000",
+      "decimal": "4194304"
+    },
+    "min_address": {
+      "absolute": {
+        "hex": "0x400000",
+        "decimal": "4194304"
+      },
+      "rva": {
+        "hex": "0x0",
+        "decimal": "0"
+      }
+    },
+    "max_address": {
+      "absolute": {
+        "hex": "0xCB1000",
+        "decimal": "13307904"
+      },
+      "rva": {
+        "hex": "0x8B1000",
+        "decimal": "9113600"
+      }
+    },
+    "start_address": {
+      "absolute": {
+        "hex": "0x824570",
+        "decimal": "8537456"
+      },
+      "rva": {
+        "hex": "0x424570",
+        "decimal": "4343152"
+      }
+    }
+  },
+  "statistics": {
+    "segment_count": 10,
+    "type_count": 1575,
+    "function_count": 21734,
+    "symbol_count": 30743
+  },
+  "diagnostics": {
+    "warning_count": 0,
+    "dropped_warning_count": 0,
+    "warnings": []
+  },
+  "source_sha256": "111387cb7e50378668d4cba6825e2f36c8f92df2ce8acd99e62da58b40308877",
+  "sanitized_json_sha256": "21f6737077ea8261e26df39001536d7c23c9128303e3cb832d33b422367e2b44",
+  "gzip_sha256": "3cb279a5886e7f5e4f750a14cdc3ea9018570f3e0703a4c5c46e9d1ee861fb48",
+  "compressed_bytes": 3453238,
+  "redacted_path_fields": [
+    "/database/idb_path",
+    "/database/input_path"
+  ],
+  "runtime_compatibility": "Not verified against the currently running executable"
+}

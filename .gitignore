@@ -1,0 +1,15 @@
+.vs/
+bin/
+obj/
+*.user
+__pycache__/
+tests/.tmp/
+.local/
+backup-before-*/
+tests/*live*.json
+docs/*.cme.json
+mcp_scripts/
+*.i64
+*.idb
+*.log
+dist/

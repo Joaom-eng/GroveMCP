@@ -1,0 +1,4 @@
+interface:
+  display_name: "Memória do GTA San Andreas PC"
+  short_description: "Consultar funções, classes e offsets do GTA SA PC"
+  default_prompt: "Use $gta-sa-memory para localizar a função ou campo solicitado na referência offline e indicar o que precisa ser validado no IDA."

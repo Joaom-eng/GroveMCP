@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations"><ProjectConfiguration Include="Release|Win32"><Configuration>Release</Configuration><Platform>Win32</Platform></ProjectConfiguration></ItemGroup>
+  <PropertyGroup Label="Globals"><ProjectGuid>{70E0A34B-A01B-453C-B1CA-21BC8B28D047}</ProjectGuid><WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration"><ConfigurationType>StaticLibrary</ConfigurationType><PlatformToolset>v143</PlatformToolset></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup><OutDir>$(ProjectDir)..\bin\Tests\</OutDir><IntDir>$(ProjectDir)..\obj\TaskLayout\</IntDir></PropertyGroup>
+  <ItemDefinitionGroup><ClCompile><LanguageStandard>stdcpplatest</LanguageStandard><PreprocessorDefinitions>GTASA;PLUGIN_SGV_10US;RW;%(PreprocessorDefinitions)</PreprocessorDefinitions><AdditionalIncludeDirectories>$(PLUGIN_SDK_DIR)\plugin_sa;$(PLUGIN_SDK_DIR)\plugin_sa\game_sa;$(PLUGIN_SDK_DIR)\plugin_sa\game_sa\rw;$(PLUGIN_SDK_DIR)\shared;$(PLUGIN_SDK_DIR)\shared\game;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories></ClCompile></ItemDefinitionGroup>
+  <ItemGroup><ClCompile Include="TaskLayoutCheck.cpp" /></ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

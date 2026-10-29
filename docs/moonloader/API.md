@@ -1,0 +1,1964 @@
+# Assinaturas da referência do autor
+
+Gerado de `raw/moonloader_reference.lua`. Não executar a referência como script.
+Nomes documentados não garantem disponibilidade na instalação atual.
+
+## Opcodes
+
+- `shakeCam(int shake)` — linha 2
+- `Player player = createPlayer(Model modelId, float atX, float atY, float atZ)` — linha 3
+- `Ped ped = createChar(int pedtype, Model modelId, float atX, float atY, float atZ)` — linha 4
+- `deleteChar(Ped ped)` — linha 5
+- `float positionX, float positionY, float positionZ = getCharCoordinates(Ped ped)` — linha 6
+- `setCharCoordinates(Ped ped, float posX, float posY, float posZ)` — linha 7
+- `bool result = isCharInArea2d(Ped ped, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 8
+- `bool result = isCharInArea3d(Ped ped, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool sphere)` — linha 9
+- `Vehicle car = createCar(Model modelId, float atX, float atY, float atZ)` — linha 10
+- `deleteCar(Vehicle car)` — linha 11
+- `carGotoCoordinates(Vehicle car, float driveToX, float driveToY, float driveToZ)` — linha 12
+- `carWanderRandomly(Vehicle car)` — linha 13
+- `carSetIdle(Vehicle car)` — linha 14
+- `float positionX, float positionY, float positionZ = getCarCoordinates(Vehicle car)` — linha 15
+- `setCarCoordinates(Vehicle car, float atX, float atY, float atZ)` — linha 16
+- `setCarCruiseSpeed(Vehicle car, float maxSpeed)` — linha 17
+- `setCarDrivingStyle(Vehicle car, int behaviour)` — linha 18
+- `setCarMission(Vehicle car, int driverBehaviour)` — linha 19
+- `bool result = isCarInArea2d(Vehicle car, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 20
+- `bool result = isCarInArea3d(Vehicle car, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool sphere)` — linha 21
+- `printBig(GxtString gxtString, int time, int style)` — linha 22
+- `printText(GxtString gxtString, int time, int flag)` — linha 23
+- `printTextNow(GxtString gxtString, int time, int flag)` — linha 24
+- `clearPrints()` — linha 25
+- `int hours, int mins = getTimeOfDay()` — linha 26
+- `setTimeOfDay(int hours, int minutes)` — linha 27
+- `int minutes = getMinutesToTimeOfDay(int hours, int minutes)` — linha 28
+- `bool result = isPointOnScreen(float sphereX, float sphereY, float sphereZ, float radius)` — linha 29
+- `Vehicle car = storeCarCharIsIn(Ped ped)` — linha 30
+- `bool result = isCharInCar(Ped ped, Vehicle car)` — linha 31
+- `bool result = isCharInModel(Ped ped, Model carModel)` — linha 32
+- `bool result = isCharInAnyCar(Ped ped)` — linha 33
+- `bool result = isButtonPressed(Player player, int key)` — linha 34
+- `int state = getPadState(Player player, int key)` — linha 35
+- `bool result = locateCharAnyMeans2d(Ped ped, float pointX, float pointY, float radiusX, float radiusY, bool sphere)` — linha 36
+- `bool result = locateCharOnFoot2d(Ped ped, float pointX, float pointY, float radiusX, float radiusY, bool sphere)` — linha 37
+- `bool result = locateCharInCar2d(Ped ped, float pointX, float pointY, float radiusX, float radiusY, bool sphere)` — linha 38
+- `bool result = locateStoppedCharAnyMeans2d(Ped ped, float pointX, float pointY, float radiusX, float radiusY, bool sphere)` — linha 39
+- `bool result = locateStoppedCharOnFoot2d(Ped ped, float pointX, float pointY, float radiusX, float radiusY, bool sphere)` — linha 40
+- `bool result = locateStoppedCharInCar2d(Ped ped, float pointX, float pointY, float radiusX, float radiusY, bool sphere)` — linha 41
+- `bool result = locateCharAnyMeansChar2d(Ped ped, Ped nearPed, float radiusX, float radiusY, bool sphere)` — linha 42
+- `locateCharOnFootChar2d(Ped ped, Ped nearPed, float radiusX, float radiusY, bool sphere)` — linha 43
+- `bool result = locateCharInCarChar2d(Ped ped, Ped nearPed, float radiusX, float radiusY, bool sphere)` — linha 44
+- `bool result = locateCharAnyMeans3d(Ped ped, float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 45
+- `bool result = locateCharOnFoot3d(Ped ped, float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 46
+- `bool result = locateCharInCar3d(Ped ped, float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 47
+- `bool result = locateStoppedCharAnyMeans3d(Ped ped, float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 48
+- `bool result = locateStoppedCharOnFoot3d(Ped ped, float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 49
+- `bool result = locateStoppedCharInCar3d(Ped ped, float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 50
+- `bool result = locateCharAnyMeansChar3d(Ped ped, Ped nearPed, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 51
+- `bool result = locateCharOnFootChar3d(Ped ped, Ped nearPed, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 52
+- `bool result = locateCharInCarChar3d(Ped ped, Ped nearPed, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 53
+- `Object object = createObject(Model modelId, float atX, float atY, float atZ)` — linha 54
+- `deleteObject(Object object)` — linha 55
+- `givePlayerMoney(Player player, int money)` — linha 56
+- `int money = getPlayerMoney(Player player)` — linha 57
+- `giveRemoteControlledCarToPlayer(Player player, float float2, float float3, float float4)` — linha 58
+- `alterWantedLevel(Player player, int wantedLevel)` — linha 59
+- `alterWantedLevelNoDrop(Player player, int minimumWantedLevel)` — linha 60
+- `bool result = isWantedLevelGreater(Player player, int level)` — linha 61
+- `clearWantedLevel(Player player)` — linha 62
+- `setDeatharrestState(bool value)` — linha 63
+- `bool result = hasDeatharrestBeenExecuted()` — linha 64
+- `addAmmoToChar(Ped ped, int weapon, int ammo)` — linha 65
+- `bool result = isPlayerDead(Player player)` — linha 66
+- `bool result = isCharDead(Ped ped)` — linha 67
+- `bool result = isCarDead(Vehicle car)` — linha 68
+- `bool result = isPlayerPressingHorn(Player player)` — linha 69
+- `Ped ped = createCharInsideCar(Vehicle car, Model pedtype, int model)` — linha 70
+- `bool result = isCarModel(Vehicle car, Model modelId)` — linha 71
+- `int carGenerator = createCarGenerator(float atX, float atY, float atZ, float angle, Model modelId, int color1, int color2, bool forceSpawn, int alarm, int doorLock, int minDelay, int maxDelay)` — linha 72
+- `switchCarGenerator(int carGenerator, int carsToGenerate)` — linha 73
+- `displayOnscreenTimer(VarId var, bool countInDirection)` — linha 74
+- `clearOnscreenTimer(VarId var)` — linha 75
+- `clearOnscreenCounter(VarId var)` — linha 76
+- `bool result = isCharInZone(Ped ped, GxtString zoneName)` — linha 77
+- `pointCameraAtCar(Vehicle car, int mode, int switchstyle)` — linha 78
+- `pointCameraAtChar(Ped ped, int mode, int switchstyle)` — linha 79
+- `restoreCamera()` — linha 80
+- `shakePad(Player player, int time, int intensity)` — linha 81
+- `setTimeScale(float gamespeed)` — linha 82
+- `setFixedCameraPosition(float positionX, float positionY, float positionZ, float rotationX, float rotationY, float rotationZ)` — linha 83
+- `pointCameraAtPoint(float pointAtX, float pointAtY, float pointAtZ, int switchstyle)` — linha 84
+- `Marker marker = addBlipForCarOld(Vehicle car, int unused, bool visibility)` — linha 85
+- `Marker marker = addBlipForCharOld(Ped ped, int int2, int int3)` — linha 86
+- `removeBlip(Marker marker)` — linha 87
+- `changeBlipColour(Marker marker, int color)` — linha 88
+- `Marker marker = addBlipForCoordOld(float atX, float atY, float atZ, int color, int flag)` — linha 89
+- `changeBlipScale(Marker marker, int size)` — linha 90
+- `setFadingColour(int r, int g, int b)` — linha 91
+- `doFade(bool in, int time)` — linha 92
+- `bool result = getFadingStatus()` — linha 93
+- `addHospitalRestart(float atX, float atY, float atZ, float angle, int townNumber)` — linha 94
+- `addPoliceRestart(float atX, float atY, float atZ, float angle, int townNumber)` — linha 95
+- `overrideNextRestart(float atX, float atY, float atZ, float angle)` — linha 96
+- `drawShadow(Particle particle, float atX, float atY, float atZ, float rotationFactor, float size, int intensity, int flags1, int flags2, int flags3)` — linha 97
+- `float angle = getCharHeading(Ped ped)` — linha 98
+- `setCharHeading(Ped ped, float angle)` — linha 99
+- `float angle = getCarHeading(Vehicle car)` — linha 100
+- `setCarHeading(Vehicle car, float angle)` — linha 101
+- `float angle = getObjectHeading(Object object)` — linha 102
+- `setObjectHeading(Object object, float angle)` — linha 103
+- `bool result = isCharTouchingObject(Ped ped, Object object)` — linha 104
+- `setCharAmmo(Ped ped, int weapon, int ammo)` — linha 105
+- `declareMissionFlag(VarId flag)` — linha 106
+- `Marker marker = addBlipForCar(Vehicle car)` — linha 107
+- `Marker marker = addBlipForChar(Ped ped)` — linha 108
+- `Marker marker = addBlipForObject(Object object)` — linha 109
+- `Checkpoint checkpoint = addBlipForCoord(float atX, float atY, float atZ)` — linha 110
+- `changeBlipDisplay(Marker marker, int mode)` — linha 111
+- `addOneOffSound(float atX, float atY, float atZ, int sound)` — linha 112
+- `int unk = addContinuousSound(float atX, float atY, float atZ, int sound)` — linha 113
+- `removeSound(int sound)` — linha 114
+- `bool result = isCarStuckOnRoof(Vehicle car)` — linha 115
+- `addUpsidedownCarCheck(Vehicle car)` — linha 116
+- `removeUpsidedownCarCheck(Vehicle car)` — linha 117
+- `bool result = isCharInAreaOnFoot2d(Ped ped, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 118
+- `bool result = isCharInAreaInCar2d(Ped ped, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 119
+- `bool result = isCharStoppedInArea2d(Ped ped, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 120
+- `bool result = isCharStoppedInAreaOnFoot2d(Ped ped, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 121
+- `bool result = isCharStoppedInAreaInCar2d(Ped ped, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 122
+- `bool result = isCharInAreaOnFoot3d(Ped ped, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool sphere)` — linha 123
+- `bool result = isCharInAreaInCar3d(Ped ped, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool sphere)` — linha 124
+- `bool result = isCharStoppedInArea3d(Ped ped, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool sphere)` — linha 125
+- `bool result = isCharStoppedInAreaOnFoot3d(Ped ped, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool sphere)` — linha 126
+- `bool result = isCharStoppedInAreaInCar3d(Ped ped, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool sphere)` — linha 127
+- `bool result = isCarStoppedInArea2d(Vehicle car, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 128
+- `bool result = isCarStoppedInArea3d(Vehicle car, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool sphere)` — linha 129
+- `bool result = locateCar2d(Vehicle car, float pointX, float pointY, float radiusX, float radiusY, bool sphere)` — linha 130
+- `bool result = locateStoppedCar2d(Vehicle car, float pointX, float pointY, float radiusX, float radiusY, bool sphere)` — linha 131
+- `bool result = locateCar3d(Vehicle car, float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 132
+- `bool result = locateStoppedCar3d(Vehicle car, float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 133
+- `giveWeaponToChar(Ped ped, int weapon, int ammo)` — linha 134
+- `bool result = setPlayerControl(Player player, bool canMove)` — linha 135
+- `bool result = forceWeather(int weather)` — linha 136
+- `bool result = forceWeatherNow(int weather)` — linha 137
+- `releaseWeather()` — linha 138
+- `setCurrentCharWeapon(Ped ped, int weapon)` — linha 139
+- `bool result, float positionX, float positionY, float positionZ = getObjectCoordinates(Object object)` — linha 140
+- `bool result = setObjectCoordinates(Object object, float atX, float atY, float atZ)` — linha 141
+- `int timeMs = getGameTimer()` — linha 142
+- `bool result, int level = storeWantedLevel(Player player)` — linha 143
+- `bool result = isCarStopped(Vehicle car)` — linha 144
+- `markCharAsNoLongerNeeded(Ped ped)` — linha 145
+- `markCarAsNoLongerNeeded(Vehicle car)` — linha 146
+- `markObjectAsNoLongerNeeded(Object object)` — linha 147
+- `dontRemoveChar(Ped ped)` — linha 148
+- `dontRemoveObject(Object object)` — linha 149
+- `bool result, Ped ped = createCharAsPassenger(Vehicle car, Model pedtype, int model, int passengerSeat)` — linha 150
+- `bool result = printWithNumberBig(GxtString gxtString, int number, int time, int style)` — linha 151
+- `bool result = printWithNumber(GxtString gxtString, int number, int time, int flag)` — linha 152
+- `bool result = printWithNumberNow(GxtString gxtString, int number, int time, int flag)` — linha 153
+- `bool result = switchRoadsOn(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 154
+- `switchRoadsOff(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 155
+- `bool result, int passengers = getNumberOfPassengers(Vehicle car)` — linha 156
+- `int maxPassengers = getMaximumNumberOfPassengers(Vehicle car)` — linha 157
+- `bool result = setCarDensityMultiplier(float multiplier)` — linha 158
+- `bool result = setCarHeavy(Vehicle car, bool heavy)` — linha 159
+- `setMaxWantedLevel(int level)` — linha 160
+- `bool result = isCarInAirProper(Vehicle car)` — linha 161
+- `bool result = isCarUpsidedown(Vehicle car)` — linha 162
+- `bool result, Ped ped = getPlayerChar(Player player)` — linha 163
+- `bool result = cancelOverrideRestart()` — linha 164
+- `bool result = setPoliceIgnorePlayer(Player player, bool ignored)` — linha 165
+- `bool result = startKillFrenzy(GxtString gxtString, int weapon, int timeLimit, int targets, Model targetModels1, Model targetModels2, Model targetModels3, Model targetModels4, bool completedText)` — linha 166
+- `bool result, int status = readKillFrenzyStatus()` — linha 167
+- `bool result = locateCharAnyMeansCar2d(Ped ped, Vehicle car, float radiusX, float radiusY, bool sphere)` — linha 168
+- `bool result = locateCharOnFootCar2d(Ped ped, Vehicle car, float radiusX, float radiusY, bool flag)` — linha 169
+- `bool result = locateCharInCarCar2d(Ped ped, Vehicle car, float radiusX, float radiusY, bool sphere)` — linha 170
+- `bool result = locateCharAnyMeansCar3d(Ped ped, Vehicle car, float radiusX, float radiusY, float radiusZ, bool flag)` — linha 171
+- `bool result = locateCharOnFootCar3d(Ped ped, Vehicle car, float radiusX, float radiusY, float radiusZ, bool flag)` — linha 172
+- `bool result = locateCharInCarCar3d(Ped ped, Vehicle car, float radiusX, float radiusY, float radiusZ, bool flag)` — linha 173
+- `lockCarDoors(Vehicle car, int status)` — linha 174
+- `bool result = explodeCar(Vehicle car)` — linha 175
+- `bool result = addExplosion(float atX, float atY, float atZ, int radius)` — linha 176
+- `bool result = isCarUpright(Vehicle car)` — linha 177
+- `bool result, Pickup pickup = createPickup(Model modelId, int type, float atX, float atY, float atZ)` — linha 178
+- `bool result = hasPickupBeenCollected(Pickup pickup)` — linha 179
+- `bool result = removePickup(Pickup pickup)` — linha 180
+- `bool result = setTaxiLights(Vehicle taxi, bool light)` — linha 181
+- `bool result = printBigQ(GxtString gxtString, int time, int style)` — linha 182
+- `bool result = setTargetCarForMissionGarage(GxtString garage, Vehicle car)` — linha 183
+- `bool result = applyBrakesToPlayersCar(Player player, bool apply)` — linha 184
+- `setCharHealth(Ped ped, int health)` — linha 185
+- `setCarHealth(Vehicle car, int health)` — linha 186
+- `int health = getCharHealth(Ped ped)` — linha 187
+- `int health = getCarHealth(Vehicle car)` — linha 188
+- `bool result = changeCarColour(Vehicle car, int primaryColor, int secondaryColor)` — linha 189
+- `switchPedRoadsOn(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 190
+- `switchPedRoadsOff(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 191
+- `setGangWeapons(int gang, int weapons1, int weapons2, int weapons3)` — linha 192
+- `bool result = isCharTouchingObjectOnFoot(Ped ped, Object object)` — linha 193
+- `loadSpecialCharacter(GxtString gxtString, int id)` — linha 194
+- `bool result = hasSpecialCharacterLoaded(int id)` — linha 195
+- `bool result = isPlayerInRemoteMode(Player player)` — linha 196
+- `setCutsceneOffset(float posX, float posY, float posZ)` — linha 197
+- `setAnimGroupForChar(Ped ped, string style)` — linha 198
+- `requestModel(Model modelId)` — linha 199
+- `bool result = hasModelLoaded(Model modelId)` — linha 200
+- `markModelAsNoLongerNeeded(Model modelId)` — linha 201
+- `drawCorona(float atX, float atY, float atZ, float radius, int type, bool lensflares, int r, int g, int b)` — linha 202
+- `storeClock()` — linha 203
+- `restoreClock()` — linha 204
+- `bool result = isPlayerPlaying(Player player)` — linha 205
+- `int mode = getControllerMode()` — linha 206
+- `setCanResprayCar(Vehicle car, bool sprayable)` — linha 207
+- `unloadSpecialCharacter(int id)` — linha 208
+- `resetNumOfModelsKilledByPlayer(Player player)` — linha 209
+- `int quantity = getNumOfModelsKilledByPlayer(Player player, Model modelId)` — linha 210
+- `activateGarage(GxtString garage)` — linha 211
+- `Object object = createObjectNoOffset(Model modelId, float atX, float atY, float atZ)` — linha 212
+- `bool result = isCharStopped(Ped ped)` — linha 213
+- `switchWidescreen(bool enable)` — linha 214
+- `Marker marker = addSpriteBlipForContactPoint(float atX, float atY, float atZ, int icon)` — linha 215
+- `Marker marker = addSpriteBlipForCoord(float atX, float atY, float atZ, int type)` — linha 216
+- `setCharOnlyDamagedByPlayer(Ped ped, bool enabled)` — linha 217
+- `setCarOnlyDamagedByPlayer(Vehicle car, bool enabled)` — linha 218
+- `setCharProofs(Ped ped, bool BP, bool FP, bool EP, bool CP, bool MP)` — linha 219
+- `setCarProofs(Vehicle car, bool BP, bool FP, bool EP, bool CP, bool MP)` — linha 220
+- `deactivateGarage(GxtString garage)` — linha 221
+- `bool result = isCarInWater(Vehicle car)` — linha 222
+- `float nodeX, float nodeY, float nodeZ = getClosestCharNode(float closestToX, float closestToY, float closestToZ)` — linha 223
+- `float nodeX, float nodeY, float nodeZ = getClosestCarNode(float closestToX, float closestToY, float closestToZ)` — linha 224
+- `carGotoCoordinatesAccurate(Vehicle car, float toX, float toY, float toZ)` — linha 225
+- `bool result = isCarOnScreen(Vehicle car)` — linha 226
+- `bool result = isCharOnScreen(Ped ped)` — linha 227
+- `bool result = isObjectOnScreen(Object object)` — linha 228
+- `float z = getGroundZFor3dCoord(float atX, float atY, float atZ)` — linha 229
+- `int fire = startScriptFire(float atX, float atY, float atZ, int propagation, int size)` — linha 230
+- `bool result = isScriptFireExtinguished(int fire)` — linha 231
+- `removeScriptFire(int fire)` — linha 232
+- `boatGotoCoords(Vehicle boat, float toX, float toY, float toZ)` — linha 233
+- `boatStop(Vehicle car)` — linha 234
+- `bool result = isCharShootingInArea(Ped ped, float cornerAX, float cornerAY, float cornerBX, float cornerBY, int weapon)` — linha 235
+- `bool result = isCurrentCharWeapon(Ped ped, int weapon)` — linha 236
+- `setBoatCruiseSpeed(Vehicle boat, float speed)` — linha 237
+- `Ped ped = getRandomCharInZone(GxtString zone, bool pedtype, bool gang, bool criminal_prostitute)` — linha 238
+- `bool result = isCharShooting(Ped ped)` — linha 239
+- `Pickup pickup = createMoneyPickup(float atX, float atY, float atZ, int cash, bool permanenceFlag)` — linha 240
+- `setCharAccuracy(Ped ped, int accuracy)` — linha 241
+- `float speed = getCarSpeed(Vehicle car)` — linha 242
+- `loadCutscene(GxtString cutscene)` — linha 243
+- `Object object = createCutsceneObject(Model modelId)` — linha 244
+- `setCutsceneAnim(int cutscene, GxtString anim)` — linha 245
+- `startCutscene()` — linha 246
+- `int time = getCutsceneTime()` — linha 247
+- `bool result = hasCutsceneFinished()` — linha 248
+- `clearCutscene()` — linha 249
+- `restoreCameraJumpcut()` — linha 250
+- `setCollectable1Total(int total)` — linha 251
+- `bool result = isProjectileInArea(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 252
+- `bool result = isCharModel(Ped ped, Model modelId)` — linha 253
+- `loadSpecialModel(Model modelId, GxtString gxtString)` — linha 254
+- `float forwardX = getCarForwardX(Vehicle car)` — linha 255
+- `float forwardY = getCarForwardY(Vehicle car)` — linha 256
+- `changeGarageType(GxtString garage, int type)` — linha 257
+- `printWith2NumbersNow(GxtString gxtString, int numbers1, int numbers2, int time, int flag)` — linha 258
+- `printWith3Numbers(GxtString gxtString, int numbers1, int numbers2, int numbers3, int time, int flag)` — linha 259
+- `printWith4Numbers(GxtString gxtString, int numbers1, int numbers2, int numbers3, int numbers4, int time, int flag)` — linha 260
+- `printWith4NumbersNow(GxtString gxtString, int numbers1, int numbers2, int numbers3, int numbers4, int time, int flag)` — linha 261
+- `printWith6Numbers(GxtString gxtString, int numbers1, int numbers2, int numbers3, int numbers4, int numbers5, int numbers6, int time, int flag)` — linha 262
+- `playerMadeProgress(int progress)` — linha 263
+- `setProgressTotal(int maxProgress)` — linha 264
+- `registerMissionGiven()` — linha 265
+- `registerMissionPassed(GxtString mission)` — linha 266
+- `removeAllScriptFires()` — linha 267
+- `bool result = hasCharBeenDamagedByWeapon(Ped ped, int weapon)` — linha 268
+- `bool result = hasCarBeenDamagedByWeapon(Vehicle car, int weapon)` — linha 269
+- `explodeCharHead(Ped ped)` — linha 270
+- `anchorBoat(Vehicle boat, bool anchor)` — linha 271
+- `int fire = startCarFire(Vehicle car)` — linha 272
+- `int fire = startCharFire(Ped ped)` — linha 273
+- `Vehicle car = getRandomCarOfTypeInArea(float cornerAX, float cornerAY, float cornerBX, float cornerBY, Model modelId)` — linha 274
+- `bool result = hasResprayHappened(Vehicle car)` — linha 275
+- `setCameraZoom(int mode)` — linha 276
+- `Pickup pickup = createPickupWithAmmo(Model modelId, int type, int ammo, float atX, float atY, float atZ)` — linha 277
+- `setCarRamCar(Vehicle car, Vehicle car)` — linha 278
+- `setPlayerNeverGetsTired(Player player, bool infiniteRun)` — linha 279
+- `setPlayerFastReload(Player player, bool fastReload)` — linha 280
+- `setCharBleeding(Ped ped, bool bleeding)` — linha 281
+- `setFreeResprays(bool enable)` — linha 282
+- `setCharVisible(Ped ped, bool visible)` — linha 283
+- `setCarVisible(Vehicle car, bool visible)` — linha 284
+- `bool result = isAreaOccupied(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool solid, bool car, bool actor, bool object, bool particle)` — linha 285
+- `displayText(float posX, float posY, GxtString gxtString)` — linha 286
+- `setTextScale(float sizeX, float sizeY)` — linha 287
+- `setTextColour(int r, int g, int b, int a)` — linha 288
+- `setTextJustify(bool alignJustify)` — linha 289
+- `setTextCentre(bool centered)` — linha 290
+- `setTextWrapx(float linewidth)` — linha 291
+- `setTextCentreSize(float linewidth)` — linha 292
+- `setTextBackground(bool background)` — linha 293
+- `setTextProportional(bool proportional)` — linha 294
+- `setTextFont(int font)` — linha 295
+- `bool result = rotateObject(Object object, float fromAngle, float toAngle, bool flag)` — linha 296
+- `bool result = slideObject(Object object, float toX, float toY, float toZ, float speedX, float speedY, float speedZ, bool collisionCheck)` — linha 297
+- `removeCharElegantly(Ped ped)` — linha 298
+- `setCharStayInSamePlace(Ped ped, bool enabled)` — linha 299
+- `bool result = isExplosionInArea(int explosionType, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 300
+- `placeObjectRelativeToCar(Object object, Vehicle car, float offsetX, float offsetY, float offsetZ)` — linha 301
+- `makeObjectTargettable(Object object, bool targetable)` — linha 302
+- `addArmourToChar(Ped ped, int points)` — linha 303
+- `openGarage(GxtString garage)` — linha 304
+- `closeGarage(GxtString garage)` — linha 305
+- `warpCharFromCarToCoord(Ped ped, float placeAtX, float placeAtY, float placeAtZ)` — linha 306
+- `setVisibilityOfClosestObjectOfType(float atX, float atY, float atZ, float radius, Model modelId, bool visibility)` — linha 307
+- `bool result = hasCharSpottedChar(Ped ped, Ped ped)` — linha 308
+- `bool result = hasObjectBeenDamaged(Object object)` — linha 309
+- `warpCharIntoCar(Ped ped, Vehicle car)` — linha 310
+- `printWith2NumbersBig(GxtString gxtString, int numbers1, int numbers2, int time, int style)` — linha 311
+- `setCameraBehindPlayer()` — linha 312
+- `Ped ped = createRandomChar(float atX, float atY, float atZ)` — linha 313
+- `bool result = isSniperBulletInArea(float float1, float float2, float float3, float float4, float float5, float float6)` — linha 314
+- `setObjectVelocity(Object object, float velocityInDirectionX, float velocityInDirectionY, float velocityInDirectionZ)` — linha 315
+- `setObjectCollision(Object object, bool collision)` — linha 316
+- `printStringInStringNow(GxtString gxtString, GxtString string, int time1, int time2)` — linha 317
+- `bool result = isPointObscuredByAMissionEntity(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 318
+- `loadAllModelsNow()` — linha 319
+- `addToObjectVelocity(Object object, float velocityX, float velocityY, float velocityZ)` — linha 320
+- `drawSprite(int texture, float positionX, float positionY, float width, float height, int r, int g, int b, int a)` — linha 321
+- `drawRect(float positionX, float positionY, float width, float height, int r, int g, int b, int a)` — linha 322
+- `int id = loadSprite(string name)` — linha 323
+- `bool result = loadTextureDictionary(zstring txd)` — linha 324
+- `removeTextureDictionary()` — linha 325
+- `setObjectDynamic(Object object, bool moveable)` — linha 326
+- `setCharAnimSpeed(Ped ped, string animation, float speed)` — linha 327
+- `playMissionPassedTune(int music)` — linha 328
+- `clearArea(float atX, float atY, float atZ, float radius, bool area)` — linha 329
+- `freezeOnscreenTimer(bool timer)` — linha 330
+- `switchCarSiren(Vehicle car, bool siren)` — linha 331
+- `setCarWatertight(Vehicle car, bool watertight)` — linha 332
+- `setCharCantBeDraggedOut(Ped ped, bool locked)` — linha 333
+- `turnCarToFaceCoord(Vehicle car, float coordX, float coordY)` — linha 334
+- `drawSphere(float atX, float atY, float atZ, float radius)` — linha 335
+- `setCarStatus(Vehicle car, int action)` — linha 336
+- `bool result = isCharMale(Ped ped)` — linha 337
+- `policeRadioMessage(float float1, float float2, float float3)` — linha 338
+- `setCarStrong(Vehicle car, bool strong)` — linha 339
+- `switchRubbish(bool int1)` — linha 340
+- `switchStreaming(bool streaming)` — linha 341
+- `bool result = isGarageOpen(GxtString garage)` — linha 342
+- `bool result = isGarageClosed(GxtString garage)` — linha 343
+- `swapNearestBuildingModel(float atX, float atY, float atZ, float radius, Model from, Model to)` — linha 344
+- `switchWorldProcessing(bool cutsceneOnly)` — linha 345
+- `clearAreaOfCars(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 346
+- `int sphere = addSphere(float atX, float atY, float atZ, float radius)` — linha 347
+- `removeSphere(int sphere)` — linha 348
+- `setEveryoneIgnorePlayer(Player player, bool ignored)` — linha 349
+- `Vehicle car = storeCarCharIsInNoSave(Ped ped)` — linha 350
+- `displayOnscreenTimerWithString(VarId timer, int type, GxtString gxtString)` — linha 351
+- `displayOnscreenCounterWithString(VarId var, bool type, GxtString gxtString)` — linha 352
+- `createRandomCarForCarPark(float coordsX, float coordsY, float coordsZ, float zAngle)` — linha 353
+- `setWantedMultiplier(float sensitivity)` — linha 354
+- `setCameraInFrontOfPlayer()` — linha 355
+- `bool result = isCarVisiblyDamaged(Vehicle car)` — linha 356
+- `bool result = doesObjectExist(Object object)` — linha 357
+- `loadScene(float atX, float atY, float atZ)` — linha 358
+- `addStuckCarCheck(Vehicle car, float stuckCheckDistance, int time)` — linha 359
+- `removeStuckCarCheck(Vehicle car)` — linha 360
+- `bool result = isCarStuck(Vehicle car)` — linha 361
+- `loadMissionAudio(int asId, int name)` — linha 362
+- `bool result = hasMissionAudioLoaded(int id)` — linha 363
+- `playMissionAudio(int id)` — linha 364
+- `bool result = hasMissionAudioFinished(int id)` — linha 365
+- `float nodeX, float nodeY, float nodeZ, float angle = getClosestCarNodeWithHeading(float X, float Y, float Z)` — linha 366
+- `bool result = hasImportGarageSlotBeenFilled(int int1, int int2)` — linha 367
+- `clearThisPrint(GxtString text)` — linha 368
+- `clearThisBigPrint(GxtString text)` — linha 369
+- `setMissionAudioPosition(int id, float locationX, float locationY, float locationZ)` — linha 370
+- `activateSaveMenu()` — linha 371
+- `bool result = hasSaveGameFinished()` — linha 372
+- `noSpecialCameraForThisGarage(int int1)` — linha 373
+- `Marker marker = addBlipForPickup(Pickup pickup)` — linha 374
+- `setPedDensityMultiplier(float multiplier)` — linha 375
+- `setTextDrawBeforeFade(bool int1)` — linha 376
+- `int collected = getCollectable1sCollected()` — linha 377
+- `setSpritesDrawBeforeFade(bool antialiased)` — linha 378
+- `setTextRightJustify(bool alignRight)` — linha 379
+- `printHelp(GxtString gxtString)` — linha 380
+- `clearHelp()` — linha 381
+- `flashHudObject(int hudComponent)` — linha 382
+- `setGenerateCarsAroundCamera(bool int1)` — linha 383
+- `clearSmallPrints()` — linha 384
+- `setUpsidedownCarNotDamaged(Vehicle car, bool disableFlippedExplosion)` — linha 385
+- `bool result = isPlayerControllable(Player player)` — linha 386
+- `makePlayerSafe(Player player)` — linha 387
+- `int primaryColor, int secondaryColor = getCarColours(Vehicle car)` — linha 388
+- `setAllCarsCanBeDamaged(bool enable)` — linha 389
+- `setCarCanBeDamaged(Vehicle car, bool enable)` — linha 390
+- `setDrunkInputDelay(Player player, int handlingResponsiveness)` — linha 391
+- `setCharMoney(Ped ped, int money)` — linha 392
+- `float X, float Y, float Z = getOffsetFromObjectInWorldCoords(Object object, float offsetX, float offsetY, float offsetZ)` — linha 393
+- `float X, float Y, float Z = getOffsetFromCarInWorldCoords(Vehicle car, float offsetX, float offsetY, float offsetZ)` — linha 394
+- `clearMissionAudio(int id)` — linha 395
+- `setFreeHealthCare(Player player, bool free)` — linha 396
+- `loadAndLaunchMissionInternal(int mission)` — linha 397
+- `setObjectDrawLast(Object object, bool drawLast)` — linha 398
+- `int ammo = getAmmoInCharWeapon(Ped ped, int int)` — linha 399
+- `setNearClip(float clip)` — linha 400
+- `setRadioChannel(int radioStation)` — linha 401
+- `setCarTraction(Vehicle car, float traction)` — linha 402
+- `bool result = areMeasurementsInMetres()` — linha 403
+- `float feet = convertMetresToFeet(float meters)` — linha 404
+- `setCarAvoidLevelTransitions(Vehicle car, bool avoidLevelTransitions)` — linha 405
+- `clearAreaOfChars(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 406
+- `setTotalNumberOfMissions(int totalMissions)` — linha 407
+- `int imperial = convertMetresToFeetInt(int metric)` — linha 408
+- `registerFastestTime(int stat, int to)` — linha 409
+- `registerHighestScore(int int1, int int2)` — linha 410
+- `warpCharIntoCarAsPassenger(Ped ped, Vehicle car, int passengerSeat)` — linha 411
+- `bool result = isCarPassengerSeatFree(Vehicle car, int seat)` — linha 412
+- `Ped ped = getCharInCarPassengerSeat(Vehicle car, int seat)` — linha 413
+- `setCharIsChrisCriminal(Ped ped, bool flag)` — linha 414
+- `startCredits()` — linha 415
+- `stopCredits()` — linha 416
+- `bool result = areCreditsFinished()` — linha 417
+- `setMusicDoesFade(bool enable)` — linha 418
+- `Model modelId = getCarModel(int int)` — linha 419
+- `bool result = areAnyCarCheatsActivated()` — linha 420
+- `setCharSuffersCriticalHits(Ped ped, bool enable)` — linha 421
+- `bool result = isCharSittingInCar(Ped ped, Vehicle car)` — linha 422
+- `bool result = isCharSittingInAnyCar(Ped ped)` — linha 423
+- `bool result = isCharOnFoot(Ped ped)` — linha 424
+- `loadSplashScreen(GxtString gxtString)` — linha 425
+- `setJamesCarOnPathToPlayer(int int1)` — linha 426
+- `setObjectRotation(Object object, float rotationX, float rotationY, float rotationZ)` — linha 427
+- `float X, float Y, float Z = getDebugCameraCoordinates()` — linha 428
+- `bool result = isPlayerTargettingChar(Player player, Ped ped)` — linha 429
+- `bool result = isPlayerTargettingObject(Player player, Object object)` — linha 430
+- `displayTextWithNumber(float x, float y, GxtString gxtString, int number)` — linha 431
+- `displayTextWith2Numbers(float x, float y, GxtString gxtString, int numbersX, int numbersY)` — linha 432
+- `failCurrentMission()` — linha 433
+- `setInterpolationParameters(float delay, int time)` — linha 434
+- `float X, float Y, float Z = getDebugCameraPointAt()` — linha 435
+- `attachCharToCar(Ped ped, Vehicle car, float offsetX, float offsetY, float offsetZ, int position, float shootingAngleLimit, int weapon)` — linha 436
+- `detachCharFromCar(Ped ped)` — linha 437
+- `setCarStayInFastLane(Vehicle car, bool flag)` — linha 438
+- `clearCharLastWeaponDamage(Ped ped)` — linha 439
+- `clearCarLastWeaponDamage(Vehicle car)` — linha 440
+- `int int10 = getRandomCopInArea(float float1, float float2, float float3, float float4, bool int5, bool int6, bool int7, bool int8, bool int9)` — linha 441
+- `Ped ped = getDriverOfCar(Vehicle car)` — linha 442
+- `int followers = getNumberOfFollowers(Ped ped)` — linha 443
+- `giveRemoteControlledModelToPlayer(Player player, float atX, float atY, float atZ, float angle, Model RCModel)` — linha 444
+- `int weapon = getCurrentCharWeapon(Ped ped)` — linha 445
+- `bool result = locateCharAnyMeansObject2d(Ped ped, Object object, float radiusX, float radiusY, bool sphere)` — linha 446
+- `bool result = locateCharOnFootObject2d(Ped ped, Object object, float radiusX, float radiusY, bool sphere)` — linha 447
+- `bool result = locateCharInCarObject2d(Ped ped, Object object, float radiusX, float radiusY, bool sphere)` — linha 448
+- `bool result = locateCharAnyMeansObject3d(Ped ped, Object object, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 449
+- `bool result = locateCharOnFootObject3d(Ped ped, Object object, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 450
+- `bool result = locateCharInCarObject3d(Ped ped, Object object, float radiusX, float radiusY, float radiusZ, bool sphere)` — linha 451
+- `setCarTempAction(Vehicle car, int action, int time)` — linha 452
+- `bool result = isCharOnAnyBike(Ped ped)` — linha 453
+- `bool result = canCharSeeDeadChar(Ped ped, int pedtype)` — linha 454
+- `setEnterCarRangeMultiplier(float float1)` — linha 455
+- `Vehicle car = getRemoteControlledCar(Player player)` — linha 456
+- `bool result = isPcVersion()` — linha 457
+- `bool result = isModelAvailable(Model modelId)` — linha 458
+- `shutCharUp(Ped ped, bool muted)` — linha 459
+- `setEnableRcDetonate(bool detonation)` — linha 460
+- `setCarRandomRouteSeed(Vehicle car, int routeSeed)` — linha 461
+- `bool result = isAnyPickupAtCoords(float pickupX, float pickupY, float pickupZ)` — linha 462
+- `removeAllCharWeapons(Ped ped)` — linha 463
+- `bool result = hasCharGotWeapon(Ped ped, int weapon)` — linha 464
+- `setTankDetonateCars(int tank, bool detonate)` — linha 465
+- `int offset1, int offset2, int offset3, int offset4 = getPositionOfAnalogueSticks(int joystick)` — linha 466
+- `bool result = isCarOnFire(Vehicle car)` — linha 467
+- `bool result = isCarTireBurst(Vehicle car, int tire)` — linha 468
+- `initialiseObjectPath(int int1, float float2)` — linha 469
+- `setObjectPathSpeed(int int1, int int2)` — linha 470
+- `setObjectPathPosition(int int1, float float2)` — linha 471
+- `clearObjectPath(int int1)` — linha 472
+- `heliGotoCoords(Vehicle heli, float toX, float toY, float toZ, float altitudeMin, float altitudeMax)` — linha 473
+- `float coordsX, float coordsY, float coordsZ = getDeadCharPickupCoords(Ped ped)` — linha 474
+- `Pickup pickup = createProtectionPickup(float atX, float atY, float atZ, int int4, int int5)` — linha 475
+- `bool result = isCharInAnyBoat(Ped ped)` — linha 476
+- `bool result = isCharInAnyHeli(Ped ped)` — linha 477
+- `bool result = isCharInAnyPlane(Ped ped)` — linha 478
+- `bool result = isCharInWater(Ped ped)` — linha 479
+- `int weapon, int ammo, Model modelId = getCharWeaponInSlot(Ped ped, int slot)` — linha 480
+- `float float6, float float7, float float8, float float9, float float10, float float11, float float12 = getClosestStraightRoad(float atX, float atY, float atZ, float height, float radius)` — linha 481
+- `setCarForwardSpeed(Vehicle car, float speed)` — linha 482
+- `setInteriorVisible(int interior)` — linha 483
+- `markCarAsConvoyCar(Vehicle car, bool convoy)` — linha 484
+- `resetHavocCausedByPlayer(int int1)` — linha 485
+- `int int2 = getHavocCausedByPlayer(int int1)` — linha 486
+- `createScriptRoadblock(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, int type)` — linha 487
+- `clearAllScriptRoadblocks()` — linha 488
+- `float X, float Y, float Z = getOffsetFromCharInWorldCoords(Ped ped, float offsetX, float offsetY, float offsetZ)` — linha 489
+- `bool result = hasCharBeenPhotographed(Ped ped)` — linha 490
+- `switchSecurityCamera(bool int1)` — linha 491
+- `bool result = isCharInFlyingVehicle(Ped ped)` — linha 492
+- `Marker marker = addShortRangeSpriteBlipForCoord(float atX, float atY, float atZ, int icon)` — linha 493
+- `setHeliOrientation(Vehicle heli, float angle)` — linha 494
+- `clearHeliOrientation(Vehicle heli)` — linha 495
+- `planeGotoCoords(int plane, float X, float Y, float Z, float z1, float z2)` — linha 496
+- `float X, float Y, float Z = getNthClosestCarNode(float X, float Y, float Z, int type)` — linha 497
+- `drawWeaponshopCorona(float X, float Y, float Z, float radius, int type, int flare, int r, int g, int b)` — linha 498
+- `setEnableRcDetonateOnContact(bool enable)` — linha 499
+- `freezeCharPosition(Ped ped, bool locked)` — linha 500
+- `setCharDrownsInWater(Ped ped, bool drowns)` — linha 501
+- `setObjectRecordsCollisions(Object object, bool set)` — linha 502
+- `bool result = hasObjectCollidedWithAnything(Object object)` — linha 503
+- `removeRcBuggy()` — linha 504
+- `int armour = getCharArmour(Ped ped)` — linha 505
+- `setHeliStabiliser(Vehicle heli, bool limiter)` — linha 506
+- `setCarStraightLineDistance(Vehicle car, int radius)` — linha 507
+- `popCarBoot(Vehicle car)` — linha 508
+- `shutPlayerUp(Player player, bool shut)` — linha 509
+- `setPlayerMood(Player player, int flag, int time)` — linha 510
+- `requestCollision(float X, float Y)` — linha 511
+- `bool result = locateObject2d(Object object, float X, float Y, float radiusX, float radiusY, bool sphere)` — linha 512
+- `bool result = locateObject3d(Object object, float X, float Y, float Z, float radiusX, float radiusY, float radiusZ, bool flag)` — linha 513
+- `bool result = isObjectInWater(Object object)` — linha 514
+- `bool result = isObjectInArea2d(Object object, float cornerAX, float cornerAY, float cornerBX, float cornerBY, bool sphere)` — linha 515
+- `bool result = isObjectInArea3d(Object object, float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ, bool flag)` — linha 516
+- `taskToggleDuck(Ped ped, bool crouch)` — linha 517
+- `requestAnimation(string animation)` — linha 518
+- `bool result = hasAnimationLoaded(string animation)` — linha 519
+- `removeAnimation(string animation)` — linha 520
+- `bool result = isCharWaitingForWorldCollision(Ped ped)` — linha 521
+- `bool result = isCarWaitingForWorldCollision(Vehicle car)` — linha 522
+- `attachCharToObject(Ped ped, Object object, float offsetX, float offsetY, float offsetZ, int orientation, float angle, int lockWeapon)` — linha 523
+- `displayNthOnscreenCounterWithString(VarId text, int type, int line, GxtString gxtString)` — linha 524
+- `addSetPiece(int type, float rectX1, float rectY1, float rectX2, float rectY2, float spawnAX, float spawnAY, float headedTowards1X, float headedTowards1Y, float spawnBX, float spawnBY, float headedTowards2X, float headedTowards2Y)` — linha 525
+- `setExtraColours(int color, bool fade)` — linha 526
+- `clearExtraColours(bool fade)` — linha 527
+- `int twowheelstime, float twowheelsdistance, int wheelietime, float wheelieDistance, int stoppieTime, float stoppieDistance = getWheelieStats(Player player)` — linha 528
+- `burstCarTire(Vehicle car, int tire)` — linha 529
+- `bool result = isPlayerWearing(Player player, string bodypart, int skin)` — linha 530
+- `setPlayerCanDoDriveBy(Player player, bool mode)` — linha 531
+- `int handleAs = createSwatRope(int pedtype, Model modelId, float X, float Y, float Z)` — linha 532
+- `setCarModelComponents(Model car, int variation1, int variation2)` — linha 533
+- `closeAllCarDoors(Vehicle car)` — linha 534
+- `float distance = getDistanceBetweenCoords2d(float x1, float y1, float x2, float y2)` — linha 535
+- `float distance = getDistanceBetweenCoords3d(float x1, float y1, float z1, float x2, float y2, float z2)` — linha 536
+- `sortOutObjectCollisionWithCar(Object object, Vehicle car)` — linha 537
+- `int level = getMaxWantedLevel()` — linha 538
+- `printHelpForever(GxtString text)` — linha 539
+- `printHelpForeverWithNumber(GxtString text, int number)` — linha 540
+- `Pickup pickup = createLockedPropertyPickup(float pX, float pY, float pZ, GxtString gxtString)` — linha 541
+- `Pickup pickup = createForsalePropertyPickup(float pX, float pY, float pZ, int price, GxtString gxtString)` — linha 542
+- `freezeCarPosition(Vehicle car, bool locked)` — linha 543
+- `bool result = hasCharBeenDamagedByChar(Ped ped, Ped byActor)` — linha 544
+- `bool result = hasCharBeenDamagedByCar(Ped ped, Vehicle byCar)` — linha 545
+- `bool result = hasCarBeenDamagedByChar(Vehicle car, Ped byActor)` — linha 546
+- `bool result = hasCarBeenDamagedByCar(Vehicle car, Vehicle byCar)` — linha 547
+- `int radio = getRadioChannel()` — linha 548
+- `setCharStayInCarWhenJacked(Ped ped, bool stay)` — linha 549
+- `setPlayerDrunkenness(Player player, int drunk)` — linha 550
+- `Vehicle car = getRandomCarOfTypeInAreaNoSave(float x1, float y1, float x2, float y2, Model modelId)` — linha 551
+- `setCanBurstCarTires(Vehicle car, bool vulnerability)` — linha 552
+- `fireHunterGun(Vehicle car)` — linha 553
+- `bool result = isCharTouchingVehicle(Ped ped, Vehicle car)` — linha 554
+- `setCharCanBeShotInVehicle(Ped ped, bool can)` — linha 555
+- `loadMissionText(GxtString table)` — linha 556
+- `clearCharLastDamageEntity(Ped ped)` — linha 557
+- `clearCarLastDamageEntity(Vehicle car)` — linha 558
+- `freezeObjectPosition(Object object, bool freeze)` — linha 559
+- `removeWeaponFromChar(Ped ped, int weapon)` — linha 560
+- `makePlayerFireProof(Player player, bool fireproof)` — linha 561
+- `increasePlayerMaxHealth(Player player, int increase)` — linha 562
+- `increasePlayerMaxArmour(Player player, int increase)` — linha 563
+- `Ped ped = createRandomCharAsDriver(Vehicle car)` — linha 564
+- `Ped ped = createRandomCharAsPassenger(Vehicle car, int seat)` — linha 565
+- `ensurePlayerHasDriveByWeapon(Player player, int ammo)` — linha 566
+- `makeHeliComeCrashingDown(Vehicle heli)` — linha 567
+- `addExplosionNoSound(float pX, float pY, float pZ, int type)` — linha 568
+- `linkObjectToInterior(Object object, int interior)` — linha 569
+- `setCharNeverTargetted(Ped ped, bool untargetable)` — linha 570
+- `bool result = wasCutsceneSkipped()` — linha 571
+- `bool result = isCharInAnyPoliceVehicle(Ped ped)` — linha 572
+- `bool result = doesCharExist(Ped ped)` — linha 573
+- `bool result = doesVehicleExist(Vehicle car)` — linha 574
+- `Marker blip = addShortRangeSpriteBlipForContactPoint(float pX, float pY, float pZ, int icon)` — linha 575
+- `setAllTaxisHaveNitro(bool toggle)` — linha 576
+- `freezeCarPositionAndDontLoadCollision(Vehicle car, bool keep)` — linha 577
+- `freezeCharPositionAndDontLoadCollision(Ped ped, bool keep)` — linha 578
+- `setPlayerIsInStadium(bool set)` — linha 579
+- `displayRadar(bool enable)` — linha 580
+- `registerBestPosition(int stat, float float)` — linha 581
+- `bool result = isPlayerInInfoZone(Player player, GxtString zone)` — linha 582
+- `setLoadCollisionForCarFlag(Vehicle car, bool enable)` — linha 583
+- `setLoadCollisionForCharFlag(Ped ped, bool enable)` — linha 584
+- `addBigGunFlash(float fromX, float fromY, float fromZ, float toX, float toY, float toZ)` — linha 585
+- `float progress = getProgressPercentage()` — linha 586
+- `setVehicleToFadeIn(Vehicle car, int flag)` — linha 587
+- `registerOddjobMissionPassed()` — linha 588
+- `bool result = isPlayerInShortcutTaxi(Player player)` — linha 589
+- `bool result = isCharDucking(Ped ped)` — linha 590
+- `setOnscreenCounterFlashWhenFirstDisplayed(VarId text, bool flashing)` — linha 591
+- `shuffleCardDecks(bool shuffle)` — linha 592
+- `int card = fetchNextCard()` — linha 593
+- `float vecX, float vecY, float vecZ = getObjectVelocity(Object object)` — linha 594
+- `bool result = isDebugCameraOn()` — linha 595
+- `addToObjectRotationVelocity(Object object, float vecX, float vecY, float vecZ)` — linha 596
+- `setObjectRotationVelocity(Object object, float vecX, float vecY, float vecZ)` — linha 597
+- `bool result = isObjectStatic(Object object)` — linha 598
+- `float angle = getAngleBetween2dVectors(float vecX, float vecY, float vecX, float vecY)` — linha 599
+- `bool result = do2dRectanglesCollide(float areaX, float areaY, float scaleX, float scaleY, float overlapareaX, float overlapareaY, float overlapscaleX, float overlapscaleY)` — linha 600
+- `float axisX, float axisY, float axisZ = getObjectRotationVelocity(Object object)` — linha 601
+- `addVelocityRelativeToObjectVelocity(Object object, float vecX, float vecY, float vecZ)` — linha 602
+- `float speed = getObjectSpeed(Object object)` — linha 603
+- `bool result, float X, float Y = get2dLinesIntersectPoint(float l1x1, float l1y1, float l1x2, float l1y2, float l2x1, float l2y1, float l2x2, float l2y2)` — linha 604
+- `taskPause(Ped ped, int timeMS)` — linha 605
+- `taskStandStill(Ped ped, int timeMS)` — linha 606
+- `taskFallAndGetUp(Ped ped, bool int2, int time)` — linha 607
+- `taskJump(Ped ped, bool jump)` — linha 608
+- `taskTired(Ped ped, int timeMS)` — linha 609
+- `taskDie(Ped ped)` — linha 610
+- `taskLookAtChar(Ped ped, int lookAt, int timeMS)` — linha 611
+- `taskLookAtVehicle(Ped ped, int lookAt, int timeMS)` — linha 612
+- `taskSay(Ped ped, int audio)` — linha 613
+- `taskShakeFist(Ped ped)` — linha 614
+- `taskCower(Ped ped)` — linha 615
+- `taskHandsUp(Ped ped, int timeMS)` — linha 616
+- `taskDuck(Ped ped, int timeMS)` — linha 617
+- `taskUseAtm(Ped ped)` — linha 618
+- `taskScratchHead(Ped ped)` — linha 619
+- `taskLookAbout(Ped ped, int timeMS)` — linha 620
+- `taskEnterCarAsPassenger(Ped ped, Vehicle car, int time, int passengerSeat)` — linha 621
+- `taskEnterCarAsDriver(Ped ped, Vehicle car, int timeMS)` — linha 622
+- `taskLeaveCar(Ped ped, Vehicle car)` — linha 623
+- `taskLeaveCarAndFlee(Ped ped, Vehicle car, float X, float Y, float Z)` — linha 624
+- `taskCarDriveToCoord(Ped ped, Vehicle car, float toX, float toY, float toZ, float speed, int int7, int model, int int9)` — linha 625
+- `taskCarDriveWander(Ped ped, Vehicle hijackCar, float searchRadius, int trafficBehavior)` — linha 626
+- `taskGoStraightToCoord(Ped ped, float toX, float toY, float toZ, int mode, int time)` — linha 627
+- `taskAchieveHeading(Ped ped, float angle)` — linha 628
+- `flushRoute()` — linha 629
+- `extendRoute(float pointX, float pointY, float pointZ)` — linha 630
+- `taskFollowPointRoute(Ped ped, int flags1, int flags2)` — linha 631
+- `taskGotoChar(Ped ped, Ped toActor, int timelimit, float stopWithinRadius)` — linha 632
+- `taskFleePoint(Ped ped, float fromX, float fromY, float fromZ, float awayRadius, int timelimit)` — linha 633
+- `taskFleeChar(Ped ped, Ped fromActor, float radius, int timelimit)` — linha 634
+- `taskSmartFleePoint(Ped ped, float fromX, float fromY, float fromZ, float stopAtRadius, int timelimit)` — linha 635
+- `taskSmartFleeChar(Ped ped, Ped fromActor, float originRadius, int timelimit)` — linha 636
+- `taskWanderStandard(Ped ped)` — linha 637
+- `taskKillCharOnFoot(Ped ped, Ped killActor)` — linha 638
+- `startPlaybackRecordedCar(Vehicle car, int path)` — linha 639
+- `stopPlaybackRecordedCar(Vehicle car)` — linha 640
+- `pausePlaybackRecordedCar(Vehicle car)` — linha 641
+- `unpausePlaybackRecordedCar(Vehicle car)` — linha 642
+- `setCarEscortCarLeft(Vehicle car, Vehicle followCar)` — linha 643
+- `setCarEscortCarRight(Vehicle car, Vehicle followCar)` — linha 644
+- `setCarEscortCarRear(Vehicle car, Vehicle followCar)` — linha 645
+- `setCarEscortCarFront(Vehicle car, Vehicle followCar)` — linha 646
+- `taskFollowPathNodesToCoord(Ped ped, float pathX, float pathY, float pathZ, int mode, int time)` — linha 647
+- `bool result = isCharInAngledArea2d(Ped ped, float x1, float y1, float x2, float y2, float angle, bool sphere)` — linha 648
+- `bool result = isCharInAngledAreaOnFoot2d(Ped ped, float x1, float y1, float x2, float y2, float angle, bool sphere)` — linha 649
+- `bool result = isCharInAngledAreaInCar2d(Ped ped, float x1, float y1, float x2, float y2, float angle, bool sphere)` — linha 650
+- `bool result = isCharStoppedInAngledArea2d(Ped ped, float x1, float y1, float x2, float y2, float height, bool flag)` — linha 651
+- `bool result = isCharStoppedInAngledAreaOnFoot2d(Ped ped, float x1, float y1, float x2, float y2, float angle, bool sphere)` — linha 652
+- `bool result = isCharStoppedInAngledAreaInCar2d(Ped ped, float x1, float y1, float x2, float y2, float height, bool flag)` — linha 653
+- `bool result = isCharInAngledArea3d(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, float angle, bool sphere)` — linha 654
+- `bool result = isCharInAngledAreaOnFoot3d(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, float angle, bool sphere)` — linha 655
+- `bool result = isCharInAngledAreaInCar3d(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, float depth, bool flag)` — linha 656
+- `bool result = isCharStoppedInAngledArea3d(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, float depth, bool flag)` — linha 657
+- `bool result = isCharStoppedInAngledAreaOnFoot3d(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, float depth, bool flag)` — linha 658
+- `bool result = isCharStoppedInAngledAreaInCar3d(Ped ped, float x1, float y1, float z1, float x2, float y2, float z2, float depth, bool flag)` — linha 659
+- `bool result = isCharInTaxi(Ped ped)` — linha 660
+- `taskGoToCoordAnyMeans(Ped ped, float toX, float toY, float toZ, int mode, Vehicle useCar)` — linha 661
+- `float zAngle = getHeadingFromVector2d(float pX, float pY)` — linha 662
+- `taskPlayAnim(Ped ped, string animation, string IFP, float framedelta, bool loop, bool lockX, bool lockY, bool lockF, int time)` — linha 663
+- `loadPathNodesInArea(float x1, float y1, float x2, float y2)` — linha 664
+- `releasePathNodes()` — linha 665
+- `int maker = loadCharDecisionMaker(int type)` — linha 666
+- `setCharDecisionMaker(Ped ped, int maker)` — linha 667
+- `setTextDropshadow(int shadow, int r, int g, int b, int a)` — linha 668
+- `bool result = isPlaybackGoingOnForCar(Vehicle car)` — linha 669
+- `setSenseRange(Ped ped, float accuracy)` — linha 670
+- `bool result = isCharPlayingAnim(Ped ped, string animation)` — linha 671
+- `setCharAnimPlayingFlag(Ped ped, string animation, bool flag)` — linha 672
+- `float time = getCharAnimCurrentTime(Ped ped, string animation)` — linha 673
+- `setCharAnimCurrentTime(Ped ped, string animation, float time)` — linha 674
+- `int task = openSequenceTask()` — linha 675
+- `closeSequenceTask(int task)` — linha 676
+- `performSequenceTask(Ped ped, int task)` — linha 677
+- `setCharCollision(Ped ped, bool enable)` — linha 678
+- `float totalTime = getCharAnimTotalTime(Ped ped, string animation)` — linha 679
+- `clearSequenceTask(int task)` — linha 680
+- `int handle = addAttractor(float originX, float originY, float originZ, float zAngle, float unknownAngle, int taskSequence)` — linha 681
+- `clearAttractor(int handle)` — linha 682
+- `Ped ped = createCharAtAttractor(int pedtype, Model modelId, int ASOrigin, int task)` — linha 683
+- `taskLeaveCarImmediately(Ped ped, Vehicle car)` — linha 684
+- `incrementIntStat(int stat, int add)` — linha 685
+- `incrementFloatStat(int stat, float add)` — linha 686
+- `decrementIntStat(int stat, int int)` — linha 687
+- `decrementFloatStat(int stat, float float)` — linha 688
+- `registerIntStat(int stat, int int)` — linha 689
+- `registerFloatStat(int stat, float value)` — linha 690
+- `setIntStat(int stat, int int)` — linha 691
+- `setFloatStat(int stat, float float)` — linha 692
+- `int status = getScriptTaskStatus(Ped ped, int task)` — linha 693
+- `int group = createGroup(int type)` — linha 694
+- `setGroupLeader(int group, Ped ped)` — linha 695
+- `setGroupMember(int group, Ped ped)` — linha 696
+- `removeGroup(int group)` — linha 697
+- `taskLeaveAnyCar(Ped ped)` — linha 698
+- `taskKillCharOnFootWhileDucking(Ped ped, int weapon, int flags, int time, int chance)` — linha 699
+- `taskAimGunAtChar(Ped ped, int aimAt, int timeMS)` — linha 700
+- `taskGoToCoordWhileShooting(Ped ped, float toX, float toY, float toZ, int mode, float turnRadius, float stopRadius, int lookAtActor)` — linha 701
+- `taskStayInSamePlace(Ped ped, bool stay)` — linha 702
+- `taskTurnCharToFaceChar(Ped ped, int rotateTo)` — linha 703
+- `bool result = isCharAtScriptedAttractor(Ped ped, int origin)` — linha 704
+- `setSequenceToRepeat(int pack, bool loop)` — linha 705
+- `int progess = getSequenceProgress(Ped ped)` — linha 706
+- `clearLookAt(Ped ped)` — linha 707
+- `setFollowNodeThresholdDistance(Ped ped, float dist)` — linha 708
+- `Particle particle = createFxSystem(string particle, float pX, float pY, float pZ, int type)` — linha 709
+- `playFxSystem(Particle particle)` — linha 710
+- `stopFxSystem(Particle particle)` — linha 711
+- `playAndKillFxSystem(Particle particle)` — linha 712
+- `killFxSystem(Particle particle)` — linha 713
+- `int stat = getIntStat(int stat)` — linha 714
+- `float stat = getFloatStat(int stat)` — linha 715
+- `setObjectRenderScorched(Object object, bool fireproof)` — linha 716
+- `taskLookAtObject(Ped ped, int lookAt, int timeMS)` — linha 717
+- `float float = limitAngle(float angle)` — linha 718
+- `openCarDoor(Vehicle car, int door)` — linha 719
+- `float X, float Y, float Z = getPickupCoordinates(Pickup pickup)` — linha 720
+- `removeDecisionMaker(int maker)` — linha 721
+- `Model modelId = getCharModel(Ped ped)` — linha 722
+- `taskAimGunAtCoord(Ped ped, float atX, float atY, float atZ, int timeMS)` — linha 723
+- `taskShootAtCoord(Ped ped, float atX, float atY, float atZ, int timeMS)` — linha 724
+- `Particle particle = createFxSystemOnChar(string particle, Ped ped, float offsetX, float offsetY, float offsetZ, int type)` — linha 725
+- `Particle particle = createFxSystemOnCharWithDirection(string particle, Ped ped, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ, int type)` — linha 726
+- `Particle particle = createFxSystemOnCar(string particle, Vehicle car, float offsetX, float offsetY, float offsetZ, int type)` — linha 727
+- `Particle particle = createFxSystemOnCarWithDirection(string particle, Vehicle car, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ, int type)` — linha 728
+- `Particle particle = createFxSystemOnObject(string particle, Object object, float offsetX, float offsetY, float offsetZ, int type)` — linha 729
+- `Particle particle = createFxSystemOnObjectWithDirection(string particle, Object object, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ, int flag)` — linha 730
+- `taskDestroyCar(Ped ped, Vehicle car)` — linha 731
+- `taskDiveAndGetUp(Ped ped, float toOffsetX, float toOffsetY, int time)` — linha 732
+- `customPlateForNextCar(Model modelId, string numberplate)` — linha 733
+- `taskShuffleToNextCarSeat(Ped ped, Vehicle car)` — linha 734
+- `taskChatWithChar(Ped ped, int withActor, bool flag, int unknownFlag)` — linha 735
+- `attachCameraToVehicle(Vehicle car, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ, float tilt, int switchstyle)` — linha 736
+- `attachCameraToVehicleLookAtVehicle(Vehicle car, float offsetX, float offsetY, float offsetZ, int toCar, float tilt, int switchstyle)` — linha 737
+- `attachCameraToVehicleLookAtChar(Vehicle car, float offsetX, float offsetY, float offsetZ, Ped ped, float tilt, int switchstyle)` — linha 738
+- `attachCameraToChar(Ped ped, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ, float tilt, int switchstyle)` — linha 739
+- `attachCameraToCharLookAtChar(Ped ped, float offsetX, float offsetY, float offsetZ, int targetActor, float tilt, int switchstyle)` — linha 740
+- `forceCarLights(Vehicle car, int lights)` — linha 741
+- `addPedtypeAsAttractorUser(int ASOrigin, int pedtype)` — linha 742
+- `attachObjectToCar(Object object, Vehicle car, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ)` — linha 743
+- `detachObject(Object object, float X, float Y, float Z, bool collisionDetection)` — linha 744
+- `attachCarToCar(Vehicle car, int toCar, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ)` — linha 745
+- `detachCar(Vehicle car, float X, float Y, float Z, bool collisionDetection)` — linha 746
+- `bool result = isObjectAttached(Object object)` — linha 747
+- `bool result = isVehicleAttached(Vehicle car)` — linha 748
+- `clearCharTasks(Ped ped)` — linha 749
+- `taskTogglePedThreatScanner(Ped ped, bool unknownFlag1, bool unknownFlag2, bool unknownFlag3)` — linha 750
+- `popCarDoor(Vehicle car, int door, bool visible)` — linha 751
+- `fixCarDoor(Vehicle car, int door)` — linha 752
+- `taskEveryoneLeaveCar(Vehicle car)` — linha 753
+- `bool result = isPlayerTargettingAnything(Player player)` — linha 754
+- `float X, float Y, float Z = getActiveCameraCoordinates()` — linha 755
+- `float X, float Y, float Z = getActiveCameraPointAt()` — linha 756
+- `popCarPanel(Vehicle car, int component, bool effectFlag)` — linha 757
+- `fixCarPanel(Vehicle car, int componentB)` — linha 758
+- `fixCarTire(Vehicle car, int tire)` — linha 759
+- `attachObjectToObject(Object object, int toObject, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ)` — linha 760
+- `attachObjectToChar(Object object, Ped ped, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ)` — linha 761
+- `float vecX, float vecY, float vecZ = getCarSpeedVector(Vehicle car)` — linha 762
+- `float mass = getCarMass(Vehicle car)` — linha 763
+- `taskDiveFromAttachmentAndGetUp(Ped ped, int timeMS)` — linha 764
+- `attachCharToBike(Ped ped, Vehicle car, float offsetX, float offsetY, float offsetZ, int position, float shootingAngle1, float shootingAngle2, int weapon)` — linha 765
+- `taskGotoCharOffset(Ped ped, int toActor, int timelimit, float approachDistance, float approachAngle)` — linha 766
+- `taskLookAtCoord(Ped ped, float toX, float toY, float toZ, int timeMS)` — linha 767
+- `hideCharWeaponForScriptedCutscene(Ped ped, bool hide)` — linha 768
+- `float speed = getCharSpeed(Ped ped)` — linha 769
+- `setGroupDecisionMaker(int group, int maker)` — linha 770
+- `int maker = loadGroupDecisionMaker(int type)` — linha 771
+- `disablePlayerSprint(Player player, bool mode)` — linha 772
+- `taskSitDown(Ped ped, int timeMS)` — linha 773
+- `Searchlight searchlight = createSearchlight(float atX, float atY, float atZ, float targetX, float targetY, float targetZ, float radius1, float radius2)` — linha 774
+- `deleteSearchlight(Searchlight searchlight)` — linha 775
+- `bool result = doesSearchlightExist(Searchlight searchlight)` — linha 776
+- `moveSearchlightBetweenCoords(Searchlight searchlight, float fromX, float fromY, float fromZ, float toX, float toY, float toZ, float speed)` — linha 777
+- `pointSearchlightAtCoord(Searchlight searchlight, float toX, float toY, float toZ, float speed)` — linha 778
+- `pointSearchlightAtChar(Searchlight searchlight, Ped ped, float speed)` — linha 779
+- `bool result = isCharInSearchlight(Searchlight searchlight, Ped ped)` — linha 780
+- `bool result = hasCutsceneLoaded()` — linha 781
+- `taskTurnCharToFaceCoord(Ped ped, float atX, float atY, float atZ)` — linha 782
+- `taskDrivePointRoute(Ped ped, Vehicle car, float speed)` — linha 783
+- `fireSingleBullet(float fromX, float fromY, float fromZ, float targetX, float targetY, float targetZ, int energy)` — linha 784
+- `bool result = isLineOfSightClear(float fromX, float fromY, float fromZ, float toX, float toY, float toZ, bool checkBuildings, bool checkVehicles, bool checkActors, bool checkObjects, bool checkParticles)` — linha 785
+- `float roll = getCarRoll(Vehicle car)` — linha 786
+- `pointSearchlightAtVehicle(Searchlight searchlight, Vehicle car, float speed)` — linha 787
+- `bool result = isVehicleInSearchlight(int int, Vehicle car)` — linha 788
+- `Searchlight searchlight = createSearchlightOnVehicle(Vehicle car, float offsetX, float offsetY, float offsetZ, float targetX, float targetY, float targetZ, float radius, float radius)` — linha 789
+- `taskGoToCoordWhileAiming(Ped ped, float toX, float toY, float toZ, int mode, float turnRadius, float stopRadius, Ped ped, float offsetX, float offsetY, float offsetZ)` — linha 790
+- `int num = getNumberOfFiresInRange(float atX, float atY, float atZ, float radius)` — linha 791
+- `Marker marker = addBlipForSearchlight(Searchlight searchlight)` — linha 792
+- `skipToEndAndStopPlaybackRecordedCar(Vehicle car)` — linha 793
+- `taskCarTempAction(Ped ped, Vehicle car, int performAction, int timelimit)` — linha 794
+- `setLaRiots(bool enable)` — linha 795
+- `removeCharFromGroup(Ped ped)` — linha 796
+- `attachSearchlightToSearchlightObject(Searchlight searchlight, int tower, int housing, int bulb, float offsetX, float offsetY, float offsetZ)` — linha 797
+- `switchEmergencyServices(bool enable)` — linha 798
+- `Checkpoint checkpoint = createCheckpoint(int type, float atX, float atY, float atZ, float pointX, float pointY, float pointZ, float radius)` — linha 799
+- `deleteCheckpoint(Checkpoint checkpoint)` — linha 800
+- `switchRandomTrains(bool enable)` — linha 801
+- `Vehicle train = createMissionTrain(int type, float atX, float atY, float atZ, bool direction)` — linha 802
+- `deleteMissionTrains()` — linha 803
+- `markMissionTrainsAsNoLongerNeeded()` — linha 804
+- `deleteAllTrains()` — linha 805
+- `setTrainSpeed(Vehicle train, float speed)` — linha 806
+- `setTrainCruiseSpeed(Vehicle train, float speed)` — linha 807
+- `int caboose = getTrainCaboose(Vehicle train)` — linha 808
+- `deletePlayer(Player player)` — linha 809
+- `setTwoPlayerCameraMode(bool mode)` — linha 810
+- `taskCarMission(Ped ped, Vehicle car, int targetCar, int order, float maxSpeed, int trafficFlag)` — linha 811
+- `taskGoToObject(Ped ped, int toObject, int timelimit, float stopWithinRadius)` — linha 812
+- `taskWeaponRoll(Ped ped, bool roll)` — linha 813
+- `taskCharArrestChar(Ped ped, int bustActor)` — linha 814
+- `Model itemID = getAvailableVehicleMod(Vehicle car, int poolIndex)` — linha 815
+- `int type = getVehicleModType(Model component)` — linha 816
+- `int componentId = addVehicleMod(Vehicle car, Model component)` — linha 817
+- `removeVehicleMod(Vehicle car, int componentId)` — linha 818
+- `requestVehicleMod(Model component)` — linha 819
+- `bool result = hasVehicleModLoaded(Model component)` — linha 820
+- `markVehicleModAsNoLongerNeeded(Model component)` — linha 821
+- `int num = getNumAvailablePaintjobs(Vehicle car)` — linha 822
+- `giveVehiclePaintjob(int set, int paintjob)` — linha 823
+- `bool result = isGroupMember(Ped ped, int group)` — linha 824
+- `bool result = isGroupLeader(Ped ped, int group)` — linha 825
+- `setGroupSeparationRange(int group, float range)` — linha 826
+- `limitTwoPlayerDistance(float distance)` — linha 827
+- `releaseTwoPlayerDistance()` — linha 828
+- `setPlayerPlayerTargetting(bool can)` — linha 829
+- `float X, float Y, float Z = getScriptFireCoords(int fire)` — linha 830
+- `float X, float Y, float Z, float ZAngle = getNthClosestCarNodeWithHeading(float forX, float forY, float forZ, int direction)` — linha 831
+- `setPlayersCanBeInSeparateCars(bool allow)` — linha 832
+- `bool result = doesCarHaveStuckCarCheck(Vehicle car)` — linha 833
+- `setPlaybackSpeed(Vehicle car, float speed)` — linha 834
+- `bool result = areAnyCharsNearChar(Ped ped, float range)` — linha 835
+- `skipCutsceneEnd()` — linha 836
+- `int percentage = getPercentageTaggedInArea(float x1, float y1, float x2, float y2)` — linha 837
+- `setTagStatusInArea(float x1, float y1, float x2, float y2, bool value)` — linha 838
+- `carGotoCoordinatesRacing(Vehicle car, float toX, float toY, float toZ)` — linha 839
+- `startPlaybackRecordedCarUsingAi(Vehicle car, int path)` — linha 840
+- `skipInPlaybackRecordedCar(Vehicle car, float path)` — linha 841
+- `clearCharDecisionMakerEventResponse(int maker, int event)` — linha 842
+- `addCharDecisionMakerEventResponse(int maker, int event, int taskID, float respect, float hate, float like, float dislike, bool inCar, bool onFoot)` — linha 843
+- `taskPickUpObject(Ped ped, Object object, float offsetX, float offsetY, float offsetZ, int boneId1, int boneId2, string performAnimation, int IFPFile, int time)` — linha 844
+- `dropObject(Ped ped, bool object)` — linha 845
+- `explodeCarInCutscene(Vehicle car)` — linha 846
+- `buildPlayerModel(Player player)` — linha 847
+- `planeAttackPlayer(int hydra, Vehicle car, float radius)` — linha 848
+- `planeFlyInDirection(int plane, float direction, float altitudemin, float altitudemax)` — linha 849
+- `planeFollowEntity(int plane, Ped ped, Vehicle car, float radius)` — linha 850
+- `taskDriveBy(Ped ped, int drivebyActor, Vehicle car, float pX, float pY, float pZ, float radiusX, int radiusY, bool radiusZ, int firingRate)` — linha 851
+- `setCarStayInSlowLane(Vehicle car, bool stay)` — linha 852
+- `takeRemoteControlOfCar(Player player, Vehicle car)` — linha 853
+- `bool result = isClosestObjectOfTypeSmashedOrDamaged(Model object, float atX, float atY, float atZ, float radius, bool smashed, bool damaged)` — linha 854
+- `startSettingUpConversation(Ped ped)` — linha 855
+- `finishSettingUpConversation()` — linha 856
+- `bool result = isConversationAtNode(Ped ped, GxtString gxtString)` — linha 857
+- `int health = getObjectHealth(Object object)` — linha 858
+- `setObjectHealth(Object object, int health)` — linha 859
+- `breakObject(Object object, int intensity)` — linha 860
+- `heliAttackPlayer(Vehicle heli, Player player, float radius)` — linha 861
+- `heliFollowEntity(Vehicle heli, Ped ped, Vehicle car, float radius)` — linha 862
+- `policeHeliChaseEntity(Vehicle heli, Ped ped, Vehicle car, float radius)` — linha 863
+- `taskUseMobilePhone(Ped ped, bool hold)` — linha 864
+- `taskWarpCharIntoCarAsDriver(Ped ped, Vehicle car)` — linha 865
+- `taskWarpCharIntoCarAsPassenger(Ped ped, Vehicle car, int passengerseat)` — linha 866
+- `switchCopsOnBikes(bool generate)` — linha 867
+- `bool result = isFlameInAngledArea2d(float x1, float y1, float x2, float y2, float angle, bool sphere)` — linha 868
+- `bool result = isFlameInAngledArea3d(float x1, float y1, float z1, float x2, float y2, float z2, float angle, bool sphere)` — linha 869
+- `addStuckCarCheckWithWarp(Vehicle car, float checkDistance, int time, bool stuck, bool flipped, bool warp, int path)` — linha 870
+- `damageCarPanel(Vehicle car, int door)` — linha 871
+- `setCarRoll(Vehicle car, float roll)` — linha 872
+- `bool result = suppressCarModel(Model modelId)` — linha 873
+- `dontSuppressCarModel(Model modelId)` — linha 874
+- `dontSuppressAnyCarModels()` — linha 875
+- `bool result = isPs2KeyboardKeyPressed(int key)` — linha 876
+- `bool result = isPs2KeyboardKeyJustPressed(int key)` — linha 877
+- `bool result = isCharHoldingObject(Ped ped, int liftingObject)` — linha 878
+- `setCarCanGoAgainstTraffic(Vehicle car, bool can)` — linha 879
+- `damageCarDoor(Vehicle car, int door)` — linha 880
+- `Vehicle car = getRandomCarInSphereNoSave(float X, float Y, float Z, float radius, int model)` — linha 881
+- `Ped ped = getRandomCharInSphere(float X, float Y, float Z, float radius, bool pedtypeCivilian, bool gang, bool prostitute)` — linha 882
+- `bool result = hasCharBeenArrested(Ped ped)` — linha 883
+- `setPlaneThrottle(int plane, float throttle)` — linha 884
+- `heliLandAtCoords(Vehicle heli, float X, float Y, float Z, float minaltitude, float maxaltitude)` — linha 885
+- `planeStartsInAir(int hydra)` — linha 886
+- `setRelationship(int acquaintance, int pedtype, int toPedtype)` — linha 887
+- `clearRelationship(int acquaintance, int pedtype, int toPedtype)` — linha 888
+- `clearGroupDecisionMakerEventResponse(int maker, int event)` — linha 889
+- `addGroupDecisionMakerEventResponse(int maker, int event, int taskID, float respect, float hate, float like, float dislike, bool inCar, bool onFoot)` — linha 890
+- `drawSpriteWithRotation(int texture, float x, float y, float scaleX, float scaleY, float angle, int r, int g, int b, int a)` — linha 891
+- `taskUseAttractor(Ped ped, int attractor)` — linha 892
+- `taskShootAtChar(Ped ped, int atActor, int timelimit)` — linha 893
+- `setInformRespectedFriends(int flags, float radius, int pedsToScan)` — linha 894
+- `bool result = isCharRespondingToEvent(Ped ped, int event)` — linha 895
+- `setObjectVisible(Object object, bool visibility)` — linha 896
+- `taskFleeCharAnyMeans(Ped ped, int fleeFrom, float runDistance, int time, bool changeCourse, int unkTime1, int unkTime2, float awayRadius)` — linha 897
+- `flushPatrolRoute()` — linha 898
+- `extendPatrolRoute(float X, float Y, float Z, string animation, string IFPFile)` — linha 899
+- `bool result = playObjectAnim(Object object, string animation, string IFPFile, float framedelta, bool lockF, bool loop)` — linha 900
+- `setRadarZoom(int zoom)` — linha 901
+- `bool result = doesBlipExist(Marker marker)` — linha 902
+- `loadPrices(GxtString shopping)` — linha 903
+- `loadShop(GxtString shopping)` — linha 904
+- `int num = getNumberOfItemsInShop()` — linha 905
+- `int item = getItemInShop(int index)` — linha 906
+- `int price = getPriceOfItem(int item)` — linha 907
+- `taskDead(Ped ped)` — linha 908
+- `setCarAsMissionCar(Vehicle car)` — linha 909
+- `setZonePopulationType(GxtString zone, int popcycle)` — linha 910
+- `setZoneDealerStrength(GxtString zone, int density)` — linha 911
+- `int strength = getZoneDealerStrength(GxtString zone)` — linha 912
+- `setZoneGangStrength(GxtString zone, int gang, int density)` — linha 913
+- `int density = getZoneGangStrength(GxtString zone, int gang)` — linha 914
+- `bool result = isMessageBeingDisplayed()` — linha 915
+- `setCharIsTargetPriority(Ped ped, bool targetPriority)` — linha 916
+- `customPlateDesignForNextCar(Model modelNumplate, int townTexture)` — linha 917
+- `taskGotoCar(Ped ped, Vehicle car, int timeMS, float stopAtDistance)` — linha 918
+- `requestIpl(string group)` — linha 919
+- `removeIpl(string group)` — linha 920
+- `removeIplDiscreetly(string group)` — linha 921
+- `setCharRelationship(Ped ped, int acquaintance, int pedtype)` — linha 922
+- `clearCharRelationship(Ped ped, int acquaintance, int pedtype)` — linha 923
+- `clearAllCharRelationships(Ped ped, int acquaintance)` — linha 924
+- `float pitch = getCarPitch(Vehicle car)` — linha 925
+- `int interior = getActiveInterior()` — linha 926
+- `heliKeepEntityInView(Vehicle heli, Ped ped, Vehicle car, float minaltitude, float maxaltitude)` — linha 927
+- `int model = getWeapontypeModel(int id)` — linha 928
+- `int slot = getWeapontypeSlot(int id)` — linha 929
+- `int info = getShoppingExtraInfo(int item, int flag)` — linha 930
+- `givePlayerClothes(Player player, int texture, int model, int bodypart)` — linha 931
+- `int num = getNumberOfFiresInArea(float x1, float y1, float z1, float x2, float y2, float z2)` — linha 932
+- `attachWinchToHeli(Vehicle heli, bool magnet)` — linha 933
+- `releaseEntityFromWinch(Vehicle heli)` — linha 934
+- `int carriage = getTrainCarriage(Vehicle train, int handle)` — linha 935
+- `Vehicle carHandle, Ped pedHandle, Object objectHandle = grabEntityOnWinch(Vehicle heli)` — linha 936
+- `GxtString name = getNameOfItem(int item)` — linha 937
+- `taskClimb(Ped ped, bool climb)` — linha 938
+- `buyItem(int item)` — linha 939
+- `clearCharTasksImmediately(Ped ped)` — linha 940
+- `storeClothesState()` — linha 941
+- `restoreClothesState()` — linha 942
+- `float length = getRopeHeightForObject(int magnet)` — linha 943
+- `setRopeHeightForObject(int magnet, float length)` — linha 944
+- `Vehicle carHandle, Ped pedHandle, Object objectHandle = grabEntityOnRopeForObject(int magnet)` — linha 945
+- `releaseEntityFromRopeForObject(int magnet)` — linha 946
+- `playerEnteredDockCrane()` — linha 947
+- `playerEnteredBuildingsiteCrane()` — linha 948
+- `playerLeftCrane()` — linha 949
+- `performSequenceTaskFromProgress(Ped ped, int sequence, int unkProgress1, int unkProgress2)` — linha 950
+- `setNextDesiredMoveState(int speed)` — linha 951
+- `taskGotoCharAiming(Ped ped, int followActor, float minradius, float maxradius)` — linha 952
+- `int unkProgress1, int unkProgress2 = getSequenceProgressRecursive(Ped ped)` — linha 953
+- `taskKillCharOnFootTimed(Ped ped, int attackActor, int time)` — linha 954
+- `float X, float Y, float Z = getNearestTagPosition(float X, float Y, float Z)` — linha 955
+- `taskJetpack(Ped ped)` — linha 956
+- `setArea51SamSite(bool enable)` — linha 957
+- `bool result, Searchlight searchlight = isCharInAnySearchlight(Ped ped)` — linha 958
+- `bool result = isTrailerAttachedToCab(Vehicle trailer, Vehicle car)` — linha 959
+- `detachTrailerFromCab(Vehicle trailer, Vehicle cab)` — linha 960
+- `int group = getPlayerGroup(Player player)` — linha 961
+- `GxtString shop = getLoadedShop()` — linha 962
+- `int int2, int int3, int int4 = getBeatProximity(int track)` — linha 963
+- `setGroupDefaultTaskAllocator(int group, int command)` — linha 964
+- `setPlayerGroupRecruitment(Player player, bool enabled)` — linha 965
+- `activateHeliSpeedCheat(Vehicle heli, int power)` — linha 966
+- `taskSetCharDecisionMaker(Ped ped, int maker)` — linha 967
+- `deleteMissionTrain(Vehicle train)` — linha 968
+- `markMissionTrainAsNoLongerNeeded(Vehicle train)` — linha 969
+- `setBlipAlwaysDisplayOnZoomedRadar(Marker marker, bool displayAlways)` — linha 970
+- `requestCarRecording(int path)` — linha 971
+- `bool result = hasCarRecordingBeenLoaded(int path)` — linha 972
+- `setMissionTrainCoordinates(Vehicle train, float X, float Y, float Z)` — linha 973
+- `taskComplexPickupObject(Ped ped, Object object)` — linha 974
+- `listenToPlayerGroupCommands(Ped ped, bool listen)` — linha 975
+- `setPlayerEnterCarButton(Player player, bool can)` — linha 976
+- `taskCharSlideToCoord(Ped ped, float toX, float toY, float toZ, float angle, float withinRadius)` — linha 977
+- `int weekday = getCurrentDayOfWeek()` — linha 978
+- `registerScriptBrainForCodeUse(int id, GxtString gxtString)` — linha 979
+- `applyForceToCar(Vehicle car, float vecX, float vecY, float vecZ, float rotationX, float rotationY, float rotationZ)` — linha 980
+- `addToCarRotationVelocity(Vehicle car, float vecX, float vecY, float vecZ)` — linha 981
+- `setCarRotationVelocity(Vehicle car, float vecX, float vecY, float vecZ)` — linha 982
+- `setCharShootRate(Ped ped, int rate)` — linha 983
+- `bool result = isModelInCdimage(Model modelId)` — linha 984
+- `removeOilPuddlesInArea(float x1, float y1, float x2, float y2)` — linha 985
+- `setBlipAsFriendly(Marker marker, bool type)` — linha 986
+- `taskSwimToCoord(Ped ped, float toX, float toY, float toZ)` — linha 987
+- `float x1, float y1, float z1, float x2, float y2, float z2 = getModelDimensions(Model modelId)` — linha 988
+- `int maker = copyCharDecisionMaker(Ped ped)` — linha 989
+- `int maker = copyGroupDecisionMaker(int group)` — linha 990
+- `taskDrivePointRouteAdvanced(Ped ped, Vehicle car, float speed, int flag1, int flag2, int flag3)` — linha 991
+- `bool result = isRelationshipSet(int acquaintance, int ofActors, int toActors)` — linha 992
+- `setCarAlwaysCreateSkids(Vehicle car, bool enable)` — linha 993
+- `int city = getCityFromCoords(float X, float Y, float Z)` — linha 994
+- `bool result = hasObjectOfTypeBeenSmashed(float X, float Y, float Z, float radius, Model modelId)` — linha 995
+- `bool result = isPlayerPerformingWheelie(Player player)` — linha 996
+- `bool result = isPlayerPerformingStoppie(Player player)` — linha 997
+- `setCheckpointCoords(Checkpoint checkpoint, float X, float Y, float Z)` — linha 998
+- `controlCarHydraulics(Vehicle car, float f1, float f2, float f3, float f4)` — linha 999
+- `int numberOfLeaders, int numberOfMembers = getGroupSize(int group)` — linha 1000
+- `setObjectCollisionDamageEffect(Object object, bool destructible)` — linha 1001
+- `setCarFollowCar(Vehicle car, int followCar, float radius)` — linha 1002
+- `playerEnteredQuarryCrane()` — linha 1003
+- `playerEnteredLasVegasCrane()` — linha 1004
+- `switchEntryExit(GxtString interior, bool access)` — linha 1005
+- `displayTextWithFloat(float X, float Y, GxtString GXT, float value, int flag)` — linha 1006
+- `bool result = doesGroupExist(int group)` — linha 1007
+- `giveMeleeAttackToChar(Ped ped, int fightingStyle, int moves)` — linha 1008
+- `setCarHydraulics(Vehicle car, bool hydraulics)` — linha 1009
+- `bool result = is2playerGameGoingOn()` — linha 1010
+- `float fov = getCameraFov()` — linha 1011
+- `bool result = doesCarHaveHydraulics(Vehicle car)` — linha 1012
+- `taskCharSlideToCoordAndPlayAnim(Ped ped, float toX, float toY, float toZ, float angle, float radius, string animation, int ifp1, float ifp2, bool LA, bool LX, bool LY, bool LF, int LT)` — linha 1013
+- `int number = getTotalNumberOfPedsKilledByPlayer(Player player)` — linha 1014
+- `float X, float Y, float Z = getLevelDesignCoordsForObject(Object object, int spoot)` — linha 1015
+- `int event = getCharHighestPriorityEvent(Ped ped)` — linha 1016
+- `float X, float Y, float Z = getParkingNodeInArea(float x1, float y1, float z1, float x2, float y2, float z2)` — linha 1017
+- `Vehicle car = getCarCharIsUsing(Ped ped)` — linha 1018
+- `taskPlayAnimNonInterruptable(Ped ped, string animation, string IFP, float framedelta, bool loopA, bool lockX, bool lockY, bool lockF, int time)` — linha 1019
+- `addStuntJump(float startX, float startY, float startZ, float radiusX, float radiusY, float radiusZ, float goalX, float goalY, float goalZ, float radius2X, float radius2Y, float radius2Z, float cameraX, float cameraY, float cameraZ, int reward)` — linha 1020
+- `setObjectCoordinatesAndVelocity(Object object, float X, float Y, float Z)` — linha 1021
+- `setCharKindaStayInSamePlace(Ped ped, bool stay)` — linha 1022
+- `taskFollowPatrolRoute(Ped ped, int walkMode, int routeMode)` — linha 1023
+- `bool result = isCharInAir(Ped ped)` — linha 1024
+- `float height = getCharHeightAboveGround(Ped ped)` — linha 1025
+- `setCharWeaponSkill(Ped ped, int skill)` — linha 1026
+- `setTextEdge(int size, int r, int g, int b, int a)` — linha 1027
+- `setCarEngineBroken(Vehicle car, bool broken)` — linha 1028
+- `bool result = isThisModelABoat(Model modelId)` — linha 1029
+- `bool result = isThisModelAPlane(Model modelId)` — linha 1030
+- `bool result = isThisModelAHeli(Model modelId)` — linha 1031
+- `setFirstPersonInCarCameraMode(bool enable)` — linha 1032
+- `taskGreetPartner(Ped ped, Ped ped2, float unk1, int unk2)` — linha 1033
+- `setHeliBladesFullSpeed(Vehicle heli)` — linha 1034
+- `displayHud(bool enable)` — linha 1035
+- `connectLods(Object object, int lod)` — linha 1036
+- `setMaxFireGenerations(int max)` — linha 1037
+- `taskDieNamedAnim(Ped ped, string animation, string ifp1, float ifp2, int time)` — linha 1038
+- `setPlayerDuckButton(Player player, bool able)` — linha 1039
+- `setPoolTableCoords(float x1, float y1, float z1, float x2, float y2, float z2)` — linha 1040
+- `bool result = hasObjectBeenPhotographed(Object object)` — linha 1041
+- `doCameraBump(float rotationZ, float rotationY)` — linha 1042
+- `int day, int month = getCurrentDate()` — linha 1043
+- `setObjectAnimSpeed(Object object, string animation, float speed)` — linha 1044
+- `bool result = isObjectPlayingAnim(Object object, string anim)` — linha 1045
+- `float progress = getObjectAnimCurrentTime(Object object, string animation)` — linha 1046
+- `setObjectAnimCurrentTime(Object object, string animation, float progress)` — linha 1047
+- `setCharVelocity(Ped ped, float vecX, float vecY, float vecZ)` — linha 1048
+- `float vecX, float vecY, float vecZ = getCharVelocity(Ped ped)` — linha 1049
+- `setCharRotation(Ped ped, float vecX, float vecY, float vecZ)` — linha 1050
+- `float value = getCarUprightValue(Vehicle car)` — linha 1051
+- `setVehicleInterior(Vehicle car, int interior)` — linha 1052
+- `selectWeaponsForVehicle(Vehicle car, bool gun)` — linha 1053
+- `int city = getCityPlayerIsIn(Player player)` — linha 1054
+- `GxtString name = getNameOfZone(float X, float Y, float Z)` — linha 1055
+- `activateInteriorPeds(bool activate)` — linha 1056
+- `setVehicleCanBeTargetted(Vehicle car, bool unk)` — linha 1057
+- `taskFollowFootsteps(Ped ped, int followActor)` — linha 1058
+- `damageChar(Ped ped, int health, bool affectArmour)` — linha 1059
+- `setCarCanBeVisiblyDamaged(Vehicle car, bool can)` — linha 1060
+- `setHeliReachedTargetDistance(Vehicle heli, int dist)` — linha 1061
+- `float level = getSoundLevelAtCoords(Ped ped, float X, float Y, float Z)` — linha 1062
+- `setCharAllowedToDuck(Ped ped, bool enable)` — linha 1063
+- `setHeadingForAttachedPlayer(Player player, float toAngle, float rotationSpeed)` — linha 1064
+- `taskWalkAlongsideChar(Ped ped, int alongisdeActor)` — linha 1065
+- `createEmergencyServicesCar(Model car, float X, float Y, float Z)` — linha 1066
+- `taskKindaStayInSamePlace(Ped ped, bool stay)` — linha 1067
+- `startPlaybackRecordedCarLooped(Vehicle car, int path)` — linha 1068
+- `setCharInterior(Ped ped, int interior)` — linha 1069
+- `bool result = isAttachedPlayerHeadingAchieved(Player player)` — linha 1070
+- `enableEntryExitPlayerGroupWarping(float X, float Y, float radius, bool access)` — linha 1071
+- `Object object = getClosestStealableObject(float X, float Y, float Z, float radius)` — linha 1072
+- `bool result = isProceduralInteriorActive(int interior)` — linha 1073
+- `removeCarRecording(int path)` — linha 1074
+- `setZonePopulationRace(GxtString zone, int popcycle)` — linha 1075
+- `setObjectOnlyDamagedByPlayer(Object object, bool player)` — linha 1076
+- `createBirds(float x1, float y1, float z1, float x2, float y2, float z2, int flag1, int flag2)` — linha 1077
+- `setVehicleDirtLevel(Vehicle car, float level)` — linha 1078
+- `setGangWarsActive(bool enable)` — linha 1079
+- `bool result = isGangWarGoingOn()` — linha 1080
+- `givePlayerClothesOutsideShop(Player player, string clothes, string model, int bodyPart)` — linha 1081
+- `clearLoadedShop()` — linha 1082
+- `setGroupSequence(int group, int Aspack)` — linha 1083
+- `setCharDropsWeaponsWhenDead(Ped ped, bool droppable)` — linha 1084
+- `setCharNeverLeavesGroup(Ped ped, bool set)` — linha 1085
+- `setPlayerFireButton(Player player, bool able)` — linha 1086
+- `attachFxSystemToCharBone(Particle particle, Ped ped, int mode)` — linha 1087
+- `registerAttractorScriptBrainForCodeUse(int handle, GxtString script)` — linha 1088
+- `setHeadingLimitForAttachedChar(Ped ped, int orientation, float limit)` — linha 1089
+- `Marker blip = addBlipForDeadChar(Ped ped)` — linha 1090
+- `float X, float Y, float Z = getDeadCharCoordinates(Ped ped)` — linha 1091
+- `taskPlayAnimWithFlags(Ped ped, string animation, string ifp, float framedelta, bool loopA, bool lockX, bool lockY, bool lockF, int time, bool force, bool lockZ)` — linha 1092
+- `setVehicleAirResistanceMultiplier(Vehicle car, float multiplier)` — linha 1093
+- `setCarCoordinatesNoOffset(Vehicle car, float X, float Y, float Z)` — linha 1094
+- `setUsesCollisionOfClosestObjectOfType(float X, float Y, float Z, float radius, Model modelId, bool collisionDetection)` — linha 1095
+- `setTimeOneDayForward()` — linha 1096
+- `setTimerBeepCountdownTime(VarId timer, int reach)` — linha 1097
+- `attachTrailerToCab(int trailer, int cab)` — linha 1098
+- `bool result = isVehicleTouchingObject(Vehicle car, Object object)` — linha 1099
+- `enableCraneControls(bool UP, bool DOWN, bool RELEASE)` — linha 1100
+- `bool result = isPlayerInPositionForConversation(Ped ped)` — linha 1101
+- `enableConversation(Ped ped, bool enable)` — linha 1102
+- `Ped ped = getRandomCharInSphereOnlyDrugsBuyers(float X, float Y, float Z, float radius)` — linha 1103
+- `int pedtype = getPedType(Ped ped)` — linha 1104
+- `bool result = taskUseClosestMapAttractor(Ped ped, float radius, Model nearModel, float offsetX, float offsetY, float offsetZ, string scriptNamed)` — linha 1105
+- `planeAttackPlayerUsingDogFight(int hydra, Player player, float radius)` — linha 1106
+- `canTriggerGangWarWhenOnAMission(bool can)` — linha 1107
+- `controlMovableVehiclePart(Vehicle car, float angle)` — linha 1108
+- `winchCanPickVehicleUp(Vehicle car, bool attractive)` — linha 1109
+- `openCarDoorABit(Vehicle car, int door, float rotation)` — linha 1110
+- `bool result = isCarDoorFullyOpen(Vehicle car, int door)` — linha 1111
+- `setAlwaysDraw3dMarkers(bool set)` — linha 1112
+- `streamScript(int script)` — linha 1113
+- `bool result = hasStreamedScriptLoaded(int script)` — linha 1114
+- `setGangWarsTrainingMission(bool set)` — linha 1115
+- `setCharHasUsedEntryExit(Ped ped, float X, float Y, float radius)` — linha 1116
+- `setCharMaxHealth(Ped ped, int health)` — linha 1117
+- `setNightVision(bool enable)` — linha 1118
+- `setInfraredVision(bool enable)` — linha 1119
+- `setZoneForGangWarsTraining(GxtString zone)` — linha 1120
+- `setCharCanBeKnockedOffBike(Ped ped, bool can)` — linha 1121
+- `setCharCoordinatesDontWarpGang(Ped ped, float X, float Y, float Z)` — linha 1122
+- `addPriceModifier(int item, int price)` — linha 1123
+- `removePriceModifier(int item)` — linha 1124
+- `initZonePopulationSettings()` — linha 1125
+- `explodeCarInCutsceneShakeAndBits(Vehicle car, bool shake, bool effect, bool sound)` — linha 1126
+- `bool result = isSkipCutsceneButtonPressed()` — linha 1127
+- `bool result, float X, float Y, float Z = getCutsceneOffset()` — linha 1128
+- `setObjectScale(Object object, float scale)` — linha 1129
+- `int popcycle = getCurrentPopulationZoneType()` — linha 1130
+- `int menu = createMenu(GxtString title, float posX, float posY, float width, int columns, bool interactive, bool background, int alignment)` — linha 1131
+- `setMenuColumnOrientation(int menu, int column, int alignment)` — linha 1132
+- `int item = getMenuItemSelected(int menu)` — linha 1133
+- `int item = getMenuItemAccepted(int menu)` — linha 1134
+- `activateMenuItem(int menu, int row, bool enable)` — linha 1135
+- `deleteMenu(int menu)` — linha 1136
+- `setMenuColumn(int menu, int column, GxtString header, GxtString data1, GxtString data2, GxtString data3, GxtString data4, GxtString data5, GxtString data6, GxtString data7, GxtString data8, GxtString data9, GxtString data10, GxtString data11, GxtString data12)` — linha 1137
+- `setBlipEntryExit(Marker marker, float X, float Y, float radius)` — linha 1138
+- `switchDeathPenalties(bool lose)` — linha 1139
+- `switchArrestPenalties(bool lose)` — linha 1140
+- `setExtraHospitalRestartPoint(float X, float Y, float Z, float radius, float angle)` — linha 1141
+- `setExtraPoliceStationRestartPoint(float X, float Y, float Z, float radius, float angle)` — linha 1142
+- `int num = findNumberTagsTagged()` — linha 1143
+- `int percentage = getTerritoryUnderControlPercentage()` — linha 1144
+- `bool result = isObjectInAngledArea2d(Object object, float x1, float y1, float x2, float y2, float radius, bool sphere)` — linha 1145
+- `bool result = isObjectInAngledArea3d(Object object, float x1, float y1, float z1, float x2, float y2, float z2, float depth, bool flag)` — linha 1146
+- `Ped ped = getRandomCharInSphereNoBrain(float X, float Y, float Z, float radius)` — linha 1147
+- `setPlaneUndercarriageUp(int plane, bool set)` — linha 1148
+- `disableAllEntryExits(bool disable)` — linha 1149
+- `attachAnimsToModel(Model modelId, GxtString externalScript)` — linha 1150
+- `setObjectAsStealable(Object object, bool liftable)` — linha 1151
+- `setCreateRandomGangMembers(bool enable)` — linha 1152
+- `addSparks(float posX, float posY, float posZ, float vecX, float vecY, float vecZ, int density)` — linha 1153
+- `int class = getVehicleClass(Vehicle car)` — linha 1154
+- `clearConversationForChar(Ped ped)` — linha 1155
+- `setMenuItemWithNumber(int panel, int column, int row, GxtString gxtString, int number)` — linha 1156
+- `setMenuItemWith2Numbers(int panel, int column, int row, GxtString gxtString, int numbers1, int numbers2)` — linha 1157
+- `setCutsceneModelTexture(GxtString cutsceneModel, GxtString textureName)` — linha 1158
+- `GxtString nameB = getNameOfInfoZone(float atX, float atY, float atZ)` — linha 1159
+- `vehicleCanBeTargettedByHsMissile(Vehicle car, bool targetable)` — linha 1160
+- `setFreebiesInVehicle(Vehicle car, bool containsGoodies)` — linha 1161
+- `setScriptLimitToGangSize(bool max)` — linha 1162
+- `makePlayerGangDisappear()` — linha 1163
+- `makePlayerGangReappear()` — linha 1164
+- `int textureCRC, int modelCRC = getClothesItem(Player player, int bodypart)` — linha 1165
+- `showUpdateStats(bool display)` — linha 1166
+- `setCoordBlipAppearance(Checkpoint checkpoint, int type)` — linha 1167
+- `setHeathazeEffect(bool enable)` — linha 1168
+- `bool result = isHelpMessageBeingDisplayed()` — linha 1169
+- `bool result = hasObjectBeenDamagedByWeapon(Object object, int type)` — linha 1170
+- `clearObjectLastWeaponDamage(Object object)` — linha 1171
+- `setPlayerJumpButton(Player player, bool enable)` — linha 1172
+- `int r, int g, int b, int a = getHudColour(int interface)` — linha 1173
+- `lockDoor(int door, bool lock)` — linha 1174
+- `setObjectMass(Object object, float mass)` — linha 1175
+- `float mass = getObjectMass(int int)` — linha 1176
+- `setObjectTurnMass(Object object, float turnMass)` — linha 1177
+- `float turnMass = getObjectTurnMass(Object object)` — linha 1178
+- `setSpecificZoneToTriggerGangWar(GxtString zone)` — linha 1179
+- `clearSpecificZonesToTriggerGangWar()` — linha 1180
+- `setActiveMenuItem(int panel, int activeRow)` — linha 1181
+- `markStreamedScriptAsNoLongerNeeded(int externalScript)` — linha 1182
+- `removeStreamedScript(int externalScript)` — linha 1183
+- `setMessageFormatting(bool priority, int leftmargin, int maxwidth)` — linha 1184
+- `startNewStreamedScript(int externalScript, table args)` — linha 1185
+- `setWeatherToAppropriateTypeNow()` — linha 1186
+- `winchCanPickObjectUp(Object object, bool enable)` — linha 1187
+- `switchAudioZone(GxtString zone, bool enableSound)` — linha 1188
+- `setCarEngineOn(Vehicle car, bool on)` — linha 1189
+- `setCarLightsOn(Vehicle car, bool lights)` — linha 1190
+- `Ped ped = getUserOfClosestMapAttractor(float sphereX, float sphereY, float sphereZ, float radius, Model modelId, string externalScriptNamed)` — linha 1191
+- `switchRoadsBackToOriginal(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 1192
+- `switchPedRoadsBackToOriginal(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 1193
+- `int landingGearStatus = getPlaneUndercarriagePosition(int plane)` — linha 1194
+- `cameraSetVectorTrack(float pointX, float pointY, float pointZ, float transverseX, float transverseY, float transverseZ, int time, bool smooth)` — linha 1195
+- `cameraSetLerpFov(float from, float to, int timelimit, bool smoothTransition)` — linha 1196
+- `switchAmbientPlanes(bool enable)` — linha 1197
+- `setDarknessEffect(bool enable, int value)` — linha 1198
+- `cameraResetNewScriptables()` — linha 1199
+- `int value = getNumberOfInstancesOfStreamedScript(int externalScript)` — linha 1200
+- `allocateStreamedScriptToRandomPed(int externalScript, Model actorModel, int priority)` — linha 1201
+- `allocateStreamedScriptToObject(int externalScript, Model objectModel, int priority, float radius, int type)` — linha 1202
+- `int handle = getGroupMember(int group, int member)` — linha 1203
+- `float height = getWaterHeightAtCoords(float atX, float atY, bool ignoreWaves)` — linha 1204
+- `cameraPersistTrack(bool lock)` — linha 1205
+- `cameraPersistPos(bool lock)` — linha 1206
+- `cameraPersistFov(bool lock)` — linha 1207
+- `bool result = cameraIsVectorMoveRunning()` — linha 1208
+- `bool result = cameraIsVectorTrackRunning()` — linha 1209
+- `cameraSetVectorMove(float cameraX, float cameraY, float cameraZ, float positionX, float positionY, float positionZ, int time, bool smoothTransition)` — linha 1210
+- `drawWindow(float cornerAX, float cornerAY, float cornerBX, float cornerBY, GxtString gxtString, int style)` — linha 1211
+- `attachCarToObject(Vehicle car, Object object, float offsetX, float offsetY, float offsetZ, float rotationX, float rotationY, float rotationZ)` — linha 1212
+- `setGarageResprayFree(GxtString garage, bool free)` — linha 1213
+- `setCharBulletproofVest(Ped ped, bool enable)` — linha 1214
+- `setCinemaCamera(bool lock)` — linha 1215
+- `setCharFireDamageMultiplier(Ped ped, float multiplier)` — linha 1216
+- `setGroupFollowStatus(int group, bool status)` — linha 1217
+- `setSearchlightClipIfColliding(Searchlight searchlight, bool flag)` — linha 1218
+- `bool result = hasPlayerBoughtItem(int item)` — linha 1219
+- `setCameraInFrontOfChar(Ped ped)` — linha 1220
+- `int maxArmour = getPlayerMaxArmour(Player player)` — linha 1221
+- `setCharUsesUpperbodyDamageAnimsOnly(Ped ped, bool uninterupted)` — linha 1222
+- `int spokenPhrase = setCharSayContext(Ped ped, int speech)` — linha 1223
+- `addExplosionVariableShake(float atX, float atY, float atZ, int type, float cameraShake)` — linha 1224
+- `attachMissionAudioToChar(int id, Ped ped)` — linha 1225
+- `updatePickupMoneyPerDay(Pickup pickup, int cash)` — linha 1226
+- `GxtString interiorName = getNameOfEntryExitCharUsed(Ped ped)` — linha 1227
+- `float coordX, float coordY, float coordZ, int number = getPositionOfEntryExitCharUsed(Ped ped)` — linha 1228
+- `bool result = isCharTalking(Ped ped)` — linha 1229
+- `disableCharSpeech(Ped ped, bool disable)` — linha 1230
+- `enableCharSpeech(Ped ped)` — linha 1231
+- `setUpSkip(float posX, float posY, float posZ, float angle)` — linha 1232
+- `clearSkip()` — linha 1233
+- `preloadBeatTrack(int soundtrack)` — linha 1234
+- `int status = getBeatTrackStatus()` — linha 1235
+- `playBeatTrack()` — linha 1236
+- `stopBeatTrack()` — linha 1237
+- `int max = findMaxNumberOfGroupMembers()` — linha 1238
+- `vehicleDoesProvideCover(Vehicle car, bool providesCover)` — linha 1239
+- `Pickup pickup = createSnapshotPickup(float atX, float atY, float atZ)` — linha 1240
+- `Pickup pickup = createHorseshoePickup(float atX, float atY, float atZ)` — linha 1241
+- `Pickup pickup = createOysterPickup(float atX, float atY, float atZ)` — linha 1242
+- `bool result = hasObjectBeenUprooted(Object object)` — linha 1243
+- `addSmokeParticle(float atX, float atY, float atZ, float velocityX, float velocityY, float velocityZ, int r, int g, int b, int a, float size, float factor)` — linha 1244
+- `bool result = isCharStuckUnderCar(Ped ped)` — linha 1245
+- `controlCarDoor(Vehicle car, int door, int unlatch, float angle)` — linha 1246
+- `float angle = getDoorAngleRatio(Vehicle car, int door)` — linha 1247
+- `setPlayerDisplayVitalStatsButton(Player player, bool display)` — linha 1248
+- `setCharKeepTask(Ped ped, bool keepTasks)` — linha 1249
+- `int id = createMenuGrid(GxtString gxtString, int positionX, int positionY, float width, int columns, bool interactive, bool background, int alignment)` — linha 1250
+- `bool result = isCharSwimming(Ped ped)` — linha 1251
+- `int status = getCharSwimState(Ped ped)` — linha 1252
+- `startCharFacialTalk(Ped ped, int time)` — linha 1253
+- `stopCharFacialTalk(Ped ped)` — linha 1254
+- `bool result = isBigVehicle(Vehicle car)` — linha 1255
+- `switchPoliceHelis(bool enable)` — linha 1256
+- `storeCarModState()` — linha 1257
+- `restoreCarModState()` — linha 1258
+- `Model modelId = getCurrentCarMod(Vehicle car, int slot)` — linha 1259
+- `bool result = isCarLowRider(Vehicle car)` — linha 1260
+- `bool result = isCarStreetRacer(Vehicle car)` — linha 1261
+- `forceDeathRestart()` — linha 1262
+- `syncWater()` — linha 1263
+- `setCharCoordinatesNoOffset(Ped ped, float atX, float atY, float atZ)` — linha 1264
+- `bool result = doesScriptFireExist(int fire)` — linha 1265
+- `resetStuffUponResurrection()` — linha 1266
+- `bool result = isEmergencyServicesVehicle(Vehicle car)` — linha 1267
+- `killFxSystemNow(Particle particle)` — linha 1268
+- `bool result = isObjectWithinBrainActivationRange(Player player)` — linha 1269
+- `int to = copySharedCharDecisionMaker(int from)` — linha 1270
+- `reportMissionAudioEventAtPosition(float atX, float atY, float atZ, int event)` — linha 1271
+- `reportMissionAudioEventAtObject(int at, int event)` — linha 1272
+- `attachMissionAudioToObject(int id, Object object)` — linha 1273
+- `int colours = getNumCarColours(Vehicle car)` — linha 1274
+- `extinguishFireAtPoint(float atX, float atY, float atZ, float radius)` — linha 1275
+- `bool result = hasTrainDerailed(Vehicle train)` — linha 1276
+- `setCharForceDieInCar(Ped ped, bool stayInCarWhenDead)` — linha 1277
+- `setOnlyCreateGangMembers(bool enable)` — linha 1278
+- `Model modelId = getObjectModel(Object object)` — linha 1279
+- `setCharUsesCollisionClosestObjectOfType(float sphereX, float sphereY, float sphereZ, float radius, Model modelId, bool solid, int forActor)` — linha 1280
+- `clearAllScriptFireFlags()` — linha 1281
+- `int blockingCar = getCarBlockingCar(Vehicle car)` — linha 1282
+- `int paintjob = getCurrentVehiclePaintjob(Vehicle car)` — linha 1283
+- `setHelpMessageBoxSize(int width)` — linha 1284
+- `setGunshotSenseRangeForRiot2(float range)` — linha 1285
+- `float angle = getCarMovingComponentOffset(Vehicle car)` — linha 1286
+- `setNamedEntryExitFlag(GxtString interior, int bitmask, bool flag)` — linha 1287
+- `pauseCurrentBeatTrack(bool paused)` — linha 1288
+- `setPlayerWeaponsScrollable(Player player, bool scrollable)` — linha 1289
+- `markRoadNodeAsDontWander(float atX, float atY, float atZ)` — linha 1290
+- `unmarkAllRoadNodesAsDontWander()` — linha 1291
+- `setCheckpointHeading(Checkpoint checkpoint, float angle)` — linha 1292
+- `setMissionRespectTotal(int respect)` — linha 1293
+- `awardPlayerMissionRespect(int respect)` — linha 1294
+- `setCarCollision(Vehicle car, bool collision)` — linha 1295
+- `changePlaybackToUseAi(Vehicle car)` — linha 1296
+- `cameraSetShakeSimulationSimple(int type, float timelimit, float intensity)` — linha 1297
+- `bool result = isNightVisionActive()` — linha 1298
+- `setCreateRandomCops(bool enable)` — linha 1299
+- `taskSetIgnoreWeaponRangeFlag(Ped ped, bool ignore)` — linha 1300
+- `taskPickUpSecondObject(Ped ped, Object object, float offsetX, float offsetY, float offsetZ, int bone, int int7, string animation, string file, int time)` — linha 1301
+- `dropSecondObject(Ped ped, bool to)` — linha 1302
+- `removeObjectElegantly(Object object)` — linha 1303
+- `drawCrosshair(bool draw)` — linha 1304
+- `setUpConversationNodeWithSpeech(GxtString question, GxtString answerY, GxtString answerN, int questionWav, int answerYWav, int answerNWav)` — linha 1305
+- `showBlipsOnAllLevels(bool enable)` — linha 1306
+- `setCharDruggedUp(Ped ped, bool druggedUp)` — linha 1307
+- `bool result = isCharHeadMissing(Ped ped)` — linha 1308
+- `int CRC32 = getHashKey(string string)` — linha 1309
+- `setUpConversationEndNodeWithSpeech(GxtString gxtString, int speech)` — linha 1310
+- `randomPassengerSay(int passengers, int audioTable)` — linha 1311
+- `hideAllFrontendBlips(bool hide)` — linha 1312
+- `setPlayerInCarCameraMode(int mode)` — linha 1313
+- `bool result = isCharInAnyTrain(Ped ped)` — linha 1314
+- `setUpSkipAfterMission(float posX, float posY, float posZ, float angle)` — linha 1315
+- `setVehicleIsConsideredByPlayer(Vehicle car, bool accessible)` — linha 1316
+- `Model modelId, int class = getRandomCarModelInMemory(bool unk)` — linha 1317
+- `int doorStatus = getCarDoorLockStatus(Vehicle car)` — linha 1318
+- `setClosestEntryExitFlag(float atX, float atY, float radius, int bitmask, bool flag)` — linha 1319
+- `setCharSignalAfterKill(Ped ped, bool signal)` — linha 1320
+- `setCharWantedByPolice(Ped ped, bool wanted)` — linha 1321
+- `setZoneNoCops(GxtString zone, bool disableCops)` — linha 1322
+- `addBlood(float atX, float atY, float atZ, float offsetX, float offsetY, float offsetZ, int density, int onActor)` — linha 1323
+- `displayCarNames(bool show)` — linha 1324
+- `displayZoneNames(bool show)` — linha 1325
+- `bool result = isCarDoorDamaged(Vehicle car, int door)` — linha 1326
+- `setCharCoordinatesDontWarpGangNoOffset(Ped ped, float atX, float atY, float atZ)` — linha 1327
+- `setMinigameInProgress(bool enable)` — linha 1328
+- `bool result = isMinigameInProgress()` — linha 1329
+- `setForceRandomCarModel(Model modelId)` — linha 1330
+- `Vehicle car = getRandomCarOfTypeInAngledAreaNoSave(float x1, float y1, float x2, float y2, float angle, int int6)` — linha 1331
+- `addNextMessageToPreviousBriefs(bool int1)` — linha 1332
+- `failKillFrenzy()` — linha 1333
+- `bool result = isCopVehicleInArea3dNoSave(float cornerAX, float cornerAY, float cornerAZ, float cornerBX, float cornerBY, float cornerBZ)` — linha 1334
+- `setPetrolTankWeakpoint(Vehicle car, bool enabled)` — linha 1335
+- `bool result = isCharUsingMapAttractor(Ped ped)` — linha 1336
+- `setPlayerModel(Player player, Model modelId)` — linha 1337
+- `bool result = areSubtitlesSwitchedOn()` — linha 1338
+- `removeCharFromCarMaintainPosition(Ped ped, Vehicle car)` — linha 1339
+- `setObjectProofs(Object object, bool BP, bool FP, bool EP, bool CP, bool MP)` — linha 1340
+- `bool result = isCarTouchingCar(Vehicle car1, Vehicle car2)` — linha 1341
+- `bool result = doesObjectHaveThisModel(Object object, Model modelId)` — linha 1342
+- `setTrainForcedToSlowDown(Vehicle train, bool forced)` — linha 1343
+- `bool result = isVehicleOnAllWheels(Vehicle car)` — linha 1344
+- `bool result = doesPickupExist(Pickup pickup)` — linha 1345
+- `enableAmbientCrime(bool enable)` — linha 1346
+- `clearWantedLevelInGarage()` — linha 1347
+- `int unk = setCharSayContextImportant(Ped ped, int soundslot, bool flags1, bool flags2, bool flags3)` — linha 1348
+- `setCharSayScript(Ped ped, int sound, bool flags1, bool flags2, bool flags3)` — linha 1349
+- `forceInteriorLightingForPlayer(Player player, bool force)` — linha 1350
+- `useDetonator()` — linha 1351
+- `bool result = isMoneyPickupAtCoords(float atX, float atY, float atZ)` — linha 1352
+- `setMenuColumnWidth(int panel, int column, int width)` — linha 1353
+- `makeRoomInPlayerGangForMissionPeds(int group)` — linha 1354
+- `bool result = isCharGettingInToACar(Ped ped)` — linha 1355
+- `setUpSkipForSpecificVehicle(float posX, float posY, float posZ, float angle, Vehicle car)` — linha 1356
+- `int price = getCarModelValue(Model modelId)` — linha 1357
+- `int generator = createCarGeneratorWithPlate(float atX, float atY, float atZ, float angle, Model modelId, int color1, int color2, bool forceSpawn, int alarm, int doorLock, int minDelay, int maxDelay, string plate)` — linha 1358
+- `bool result = findTrainDirection(Vehicle train)` — linha 1359
+- `setAircraftCarrierSamSite(bool enable)` — linha 1360
+- `drawLightWithRange(float atX, float atY, float atZ, int r, int g, int b, float radius)` — linha 1361
+- `enableBurglaryHouses(bool enable)` — linha 1362
+- `bool result = isPlayerControlOn(Player player)` — linha 1363
+- `int interior = getCharActiveInterior(Ped ped)` — linha 1364
+- `giveNonPlayerCarNitro(Vehicle car)` — linha 1365
+- `playerTakeOffGoggles(Player player, bool useAnim)` — linha 1366
+- `allowFixedCameraCollision(bool allow)` — linha 1367
+- `bool result = hasCharSpottedCharInFront(Ped ped, Ped ped2)` — linha 1368
+- `forceBigMessageAndCounter(bool stayOnScreen)` — linha 1369
+- `setVehicleCameraTweak(Model carModel, float distance, float altitudeMultiplier, float angleX)` — linha 1370
+- `resetVehicleCameraTweak()` — linha 1371
+- `reportMissionAudioEventAtChar(Ped ped, int event)` — linha 1372
+- `bool result = doesDecisionMakerExist(int maker)` — linha 1373
+- `ignoreHeightDifferenceFollowingNodes(Ped ped, bool ignore)` — linha 1374
+- `shutAllCharsUp(bool enable)` — linha 1375
+- `setCharGetOutUpsideDownCar(Ped ped, bool canGetOut)` — linha 1376
+- `reportMissionAudioEventAtCar(Vehicle car, int event)` — linha 1377
+- `doWeaponStuffAtStartOf2pGame()` — linha 1378
+- `bool result = hasGameJustReturnedFromFrontend()` — linha 1379
+- `int language = getCurrentLanguage()` — linha 1380
+- `bool result = isObjectIntersectingWorld(Object object)` — linha 1381
+- `int width = getStringWidth(GxtString gxtString)` — linha 1382
+- `resetVehicleHydraulics(Vehicle car)` — linha 1383
+- `setRespawnPointForDurationOfMission(float posX, float posY, float posZ)` — linha 1384
+- `bool result = isThisModelACar(Model modelId)` — linha 1385
+- `switchOnGroundSearchlight(Searchlight searchlight, bool lightsThroughObstacles)` — linha 1386
+- `bool result = isGangWarFightingGoingOn()` — linha 1387
+- `bool result = isNextStationAllowed(Vehicle train)` — linha 1388
+- `skipToNextAllowedStation(Vehicle train)` — linha 1389
+- `int width = getStringWidthWithNumber(GxtString gxtString, int number)` — linha 1390
+- `shutCharUpForScriptedSpeech(Ped ped, bool muted)` — linha 1391
+- `enableDisabledAttractorsOnObject(Object object, bool enable)` — linha 1392
+- `loadSceneInDirection(float coordX, float coordY, float coordZ, float angle)` — linha 1393
+- `bool result = isPlayerUsingJetpack(Player player)` — linha 1394
+- `clearThisPrintBigNow(int style)` — linha 1395
+- `bool result = hasLanguageChanged()` — linha 1396
+- `incrementIntStatNoMessage(int stat, int value)` — linha 1397
+- `setExtraCarColours(Vehicle car, int tertiaryColor, int quaternaryColor)` — linha 1398
+- `int tertiaryColor, int quaternaryColor = getExtraCarColours(Vehicle car)` — linha 1399
+- `manageAllPopulation()` — linha 1400
+- `setNoResprays(bool enable)` — linha 1401
+- `bool result = hasCarBeenResprayed(Vehicle car)` — linha 1402
+- `attachMissionAudioToCar(int audioId, Vehicle car)` — linha 1403
+- `setHasBeenOwnedForCarGenerator(int generator, bool owned)` — linha 1404
+- `setUpConversationNodeWithScriptedSpeech(GxtString questionGXT, GxtString answerYesGXT, GxtString answerNoGXT, int questionWAV, int answerYesWAV, int answerNoWAV)` — linha 1405
+- `setAreaName(GxtString gxtString)` — linha 1406
+- `taskPlayAnimSecondary(Ped ped, string animation, string IFP, float framedelta, bool loopA, bool lockX, bool lockY, bool lockF, int time)` — linha 1407
+- `bool result = isCharTouchingChar(Ped ped, Ped ped2)` — linha 1408
+- `disableHeliAudio(Vehicle helicopter, bool disable)` — linha 1409
+- `taskHandGesture(Ped ped, Ped ped2)` — linha 1410
+- `takePhoto(bool unk)` — linha 1411
+- `incrementFloatStatNoMessage(int stat, float value)` — linha 1412
+- `setPlayerGroupToFollowAlways(Player player, bool followAlways)` — linha 1413
+- `improveCarByCheating(Vehicle car, bool affectedByCheats)` — linha 1414
+- `changeCarColourFromMenu(int panelID, Vehicle car, int colorslot, int activeRow)` — linha 1415
+- `highlightMenuItem(int panel, int row, bool highlight)` — linha 1416
+- `setDisableMilitaryZones(bool disable)` — linha 1417
+- `setCameraPositionUnfixed(float xAngle, float zAngle)` — linha 1418
+- `setRadioToPlayersFavouriteStation()` — linha 1419
+- `setDeathWeaponsPersist(Ped ped, bool persist)` — linha 1420
+- `setCharSwimSpeed(Ped ped, float speed)` — linha 1421
+- `bool result = isPlayerClimbing(Player player)` — linha 1422
+- `bool result = isThisHelpMessageBeingDisplayed(GxtString gxtString)` — linha 1423
+- `bool result = isWidescreenOnInOptions()` — linha 1424
+- `drawSubtitlesBeforeFade(bool flag)` — linha 1425
+- `drawOddjobTitleBeforeFade(bool flag)` — linha 1426
+- `taskFollowPathNodesToCoordWithRadius(Ped ped, float toX, float toY, float toZ, int mode, int time, float stopRadius)` — linha 1427
+- `setPhotoCameraEffect(bool firstPersonView)` — linha 1428
+- `fixCar(Vehicle car)` — linha 1429
+- `setPlayerGroupToFollowNever(Player player, bool neverFollow)` — linha 1430
+- `bool result = isCharAttachedToAnyCar(Ped ped)` — linha 1431
+- `Ped ped = storeCarCharIsAttachedToNoSave(Vehicle car)` — linha 1432
+- `setUpSkipForVehicleFinishedByScript(float posX, float posY, float posZ, float angle, Vehicle car)` — linha 1433
+- `bool result = isSkipWaitingForScriptToFadeIn()` — linha 1434
+- `forceAllVehicleLightsOff(bool off)` — linha 1435
+- `int mode = getPlayerInCarCameraMode()` — linha 1436
+- `bool result = isLastBuildingModelShotByPlayer(Player player, Model modelId)` — linha 1437
+- `clearLastBuildingModelShotByPlayer(Player player)` — linha 1438
+- `setUpConversationEndNodeWithScriptedSpeech(GxtString dialogueGxt, int wav)` — linha 1439
+- `activatePimpCheat(bool enable)` — linha 1440
+- `Ped ped = getRandomCharInAreaOffsetNoSave(float sphereX, float sphereY, float sphereZ, float radiusX, float radiusY, float radiusZ)` — linha 1441
+- `setScriptCoopGame(bool enable)` — linha 1442
+- `Marker marker = createUser3dMarker(float atX, float atY, float atZ, int color)` — linha 1443
+- `removeUser3dMarker(Marker marker)` — linha 1444
+- `getRidOfPlayerProstitute()` — linha 1445
+- `displayNonMinigameHelpMessages(bool display)` — linha 1446
+- `setRailtrackResistanceMult(float tracksFriction)` — linha 1447
+- `switchObjectBrains(int externalScript, bool canBeStreamedIn)` — linha 1448
+- `finishSettingUpConversationNoSubtitles()` — linha 1449
+- `allowPauseInWidescreen(bool enable)` — linha 1450
+- `float x, float y = getPcMouseMovement()` — linha 1451
+- `bool result = isPcUsingJoypad()` — linha 1452
+- `bool result = isMouseUsingVerticalInversion()` — linha 1453
+- `bool result = startNewCustomScript(zstring filepath, table args)` — linha 1454
+- `launchCustomMission(zstring filepath, table args)` — linha 1455
+- `int handle = getScmThreadStructNamed(GxtString thread)` — linha 1456
+- `setCleoSharedVar(int var, int value)` — linha 1457
+- `int value = getCleoSharedVar(int var)` — linha 1458
+- `sampSpawnPlayer()` — linha 1459
+- `uint handle = sampGetBase()` — linha 1460
+- `sampAddChatMessage(zstring text, uint color)` — linha 1461
+- `sampSendChat(zstring text)` — linha 1462
+- `bool result = isSampAvailable()` — linha 1463
+- `sampRequestClass(int class)` — linha 1464
+- `sampSendScmEvent(int event, int id, int param1, int param2)` — linha 1465
+- `sampSetSpecialAction(int action)` — linha 1466
+- `sampSendDeathByPlayer(int playerId, int reason)` — linha 1467
+- `bool result, Vehicle car = sampGetCarHandleBySampVehicleId(int id)` — linha 1468
+- `bool result, Ped ped = sampGetCharHandleBySampPlayerId(int id)` — linha 1469
+- `bool result = sampIsChatInputActive()` — linha 1470
+- `sampSetSendrate(int type, int rate)` — linha 1471
+- `bool result = sampIsPlayerConnected(int id)` — linha 1472
+- `uint structPtr = sampGetPlayerStructPtr(int id)` — linha 1473
+- `int health = sampGetPlayerHealth(int id)` — linha 1474
+- `int armor = sampGetPlayerArmor(int id)` — linha 1475
+- `sampSetGamestate(int gamestate)` — linha 1476
+- `sampDisconnectWithReason(bool timeout)` — linha 1477
+- `sampSetLocalPlayerName(zstring name)` — linha 1478
+- `int ping = sampGetPlayerPing(int id)` — linha 1479
+- `bool result, int id = sampGetPlayerIdByCharHandle(Ped handle)` — linha 1480
+- `bool result, int id = sampGetVehicleIdByCarHandle(Vehicle car)` — linha 1481
+- `bool result, float posX, float posY, float posZ = sampGetStreamedOutPlayerPos(int id)` — linha 1482
+- `sampSendEnterVehicle(int id, bool passenger)` — linha 1483
+- `sampSendExitVehicle(int id)` — linha 1484
+- `sampSendSpawn()` — linha 1485
+- `sampSendDamageVehicle(Vehicle car, int panel, int doors, int lights, int tires)` — linha 1486
+- `bool result = sampRegisterChatCommand(zstring cmd, function func)` — linha 1487
+- `zstring name = sampGetPlayerNickname(int id)` — linha 1488
+- `uint color = sampGetPlayerColor(int id)` — linha 1489
+- `sampConnectToServer(zstring ip, uint port)` — linha 1490
+- `zstring ip, uint port = sampGetCurrentServerAddress()` — linha 1491
+- `zstring name = sampGetCurrentServerName()` — linha 1492
+- `sampShowDialog(int id, zstring caption, zstring text, zstring button1, zstring button2, int style)` — linha 1493
+- `bool result, int button, int list, zstring input = sampHasDialogRespond(int id)` — linha 1494
+- `Bitstream bs = raknetNewBitStream()` — linha 1495
+- `raknetDeleteBitStream(Bitstream bs)` — linha 1496
+- `raknetResetBitStream(Bitstream bs)` — linha 1497
+- `raknetBitStreamWriteBool(Bitstream bs, bool value)` — linha 1498
+- `raknetBitStreamWriteInt8(Bitstream bs, int value)` — linha 1499
+- `raknetBitStreamWriteInt16(Bitstream bs, int value)` — linha 1500
+- `raknetBitStreamWriteInt32(Bitstream bs, int value)` — linha 1501
+- `raknetBitStreamWriteFloat(Bitstream bs, float value)` — linha 1502
+- `raknetBitStreamWriteBuffer(Bitstream bs, uint dest, uint size)` — linha 1503
+- `raknetBitStreamWriteBitStream(Bitstream bs, Bitstream bitStream)` — linha 1504
+- `raknetBitStreamWriteString(Bitstream bs, string str)` — linha 1505
+- `raknetSendRpcEx(int rpc, Bitstream bs, int priority, int reliability, int channel, bool timestamp)` — linha 1506
+- `raknetSendBitStreamEx(Bitstream bs, int priority, int reliability, int channel)` — linha 1507
+- `int textlabel = sampCreate3dText(zstring text, uint color, float posX, float posY, float posZ, float distance, bool ignoreWalls, int playerId, int vehicleId)` — linha 1508
+- `sampDestroy3dText(int textlabel)` — linha 1509
+- `bool result = sampIs3dTextDefined(int 3dText)` — linha 1510
+- `sampCloseCurrentDialogWithButton(int button)` — linha 1511
+- `int list = sampGetCurrentDialogListItem()` — linha 1512
+- `sampSetCurrentDialogListItem(int list)` — linha 1513
+- `zstring text = sampGetCurrentDialogEditboxText()` — linha 1514
+- `sampSetCurrentDialogEditboxText(zstring text)` — linha 1515
+- `bool result = sampIsDialogActive()` — linha 1516
+- `int type = sampGetCurrentDialogType()` — linha 1517
+- `int id = sampGetCurrentDialogId()` — linha 1518
+- `int gamestate = sampGetGamestate()` — linha 1519
+- `Object object = sampGetObjectHandleBySampId(int id)` — linha 1520
+- `Pickup pickup = sampGetPickupHandleBySampId(int id)` — linha 1521
+- `int objectId = sampGetObjectSampIdByHandle(Object object)` — linha 1522
+- `int pickupId = sampGetPickupSampIdByHandle(Pickup pickup)` — linha 1523
+- `int count = sampGetListboxItemsCount()` — linha 1524
+- `int animid = sampGetPlayerAnimationId(int playerId)` — linha 1525
+- `zstring name, zstring file = sampGetAnimationNameAndFile(int animid)` — linha 1526
+- `int id = sampFindAnimationIdByNameAndFile(zstring name, zstring file)` — linha 1527
+- `int resX, int resY = getScreenResolution()` — linha 1528
+- `zstring text = sampGetListboxItemText(int item)` — linha 1529
+- `bool result = sampIsPlayerPaused(int id)` — linha 1530
+- `sampToggleCursor(bool show)` — linha 1531
+- `bool result = sampIsLocalPlayerSpawned()` — linha 1532
+- `int action = sampGetPlayerSpecialAction(int id)` — linha 1533
+- `bool result = sampUnregisterChatCommand(zstring cmd)` — linha 1534
+- `bool result = sampIsPlayerNpc(int id)` — linha 1535
+- `int score = sampGetPlayerScore(int id)` — linha 1536
+- `sampSetChatString(int id, zstring text, zstring prefix, uint color, uint pcolor)` — linha 1537
+- `zstring text, zstring prefix, uint color, uint pcolor = sampGetChatString(int id)` — linha 1538
+- `sampSetChatInputText(zstring text)` — linha 1539
+- `zstring text = sampGetChatInputText()` — linha 1540
+- `sampfuncsLog(zstring msg)` — linha 1541
+- `sampSetChatInputEnabled(bool enabled)` — linha 1542
+- `uint rakclientPtr = sampGetRakclientInterface()` — linha 1543
+- `uint rakpeer = sampGetRakpeer()` — linha 1544
+- `uint address = sampGetRakclientFuncAddressByIndex(int index)` — linha 1545
+- `uint callbackAddress = sampGetRpcCallbackByRpcId(int index)` — linha 1546
+- `uint node = sampGetRpcNodeByRpcId(int index)` — linha 1547
+- `uint sampPtr = sampGetSampInfoPtr()` — linha 1548
+- `DxutDialog dialog = dxutCreateDialog(zstring name)` — linha 1549
+- `bool result, int event, int id = dxutPopEvent(DxutDialog dialog)` — linha 1550
+- `dxutAddButton(DxutDialog dialog, int id, zstring text, int posX, int posY, int sizeX, int sizeY)` — linha 1551
+- `dxutAddCheckbox(DxutDialog dialog, int id, zstring text, int posX, int posY, int sizeX, int sizeY)` — linha 1552
+- `dxutSetDialogPos(DxutDialog dialog, int posX, int posY, int sizeX, int sizeY)` — linha 1553
+- `int posX, int posY, int sizeX, int sizeY = dxutGetDialogPosAndSize(DxutDialog dialog)` — linha 1554
+- `dxutSetDialogVisible(DxutDialog dialog, bool visible)` — linha 1555
+- `bool result = dxutIsDialogVisible(DxutDialog dialog)` — linha 1556
+- `dxutAddEditbox(DxutDialog dialog, int id, zstring text, int posX, int posY, int sizeX, int sizeY)` — linha 1557
+- `zstring text = dxutGetControlText(DxutDialog dialog, int id)` — linha 1558
+- `raknetSendRpc(int rpc, Bitstream bs)` — linha 1559
+- `raknetSendBitStream(Bitstream bs)` — linha 1560
+- `bool result = sampIsCursorActive()` — linha 1561
+- `sampSetCursorMode(int mode)` — linha 1562
+- `int mode = sampGetCursorMode()` — linha 1563
+- `dxutSetControlVisible(DxutDialog dialog, int id, bool visible)` — linha 1564
+- `dxutAddStatic(DxutDialog dialog, int id, zstring text, int posX, int posY, int sizeX, int sizeY)` — linha 1565
+- `bool result = dxutIsCheckboxChecked(DxutDialog dialog, int id)` — linha 1566
+- `dxutSetDialogBackgroundColor(DxutDialog dialog, uint color)` — linha 1567
+- `dxutSetControlText(DxutDialog dialog, int id, zstring text)` — linha 1568
+- `bool result = dxutControlIsVisible(DxutDialog dialog, int id)` — linha 1569
+- `dxutAddSlider(DxutDialog dialog, int id, int posX, int posY, int sizeX, int sizeY, int max)` — linha 1570
+- `int value = dxutGetSliderValue(DxutDialog dialog, int id)` — linha 1571
+- `dxutSetSliderValue(DxutDialog dialog, int id, int value)` — linha 1572
+- `dxutAddListbox(DxutDialog dialog, int id, int posX, int posY, int sizeX, int sizeY)` — linha 1573
+- `dxutListboxInsertItem(DxutDialog dialog, int id, zstring element, uint data, int after)` — linha 1574
+- `int element, int count = dxutGetListboxSelectedItemAndCount(DxutDialog dialog, int id)` — linha 1575
+- `dxutListboxDeleteItem(DxutDialog dialog, int id, int element)` — linha 1576
+- `zstring text, uint data = dxutGetListboxItemTextAndData(DxutDialog dialog, int id, int element)` — linha 1577
+- `dxutCheckboxSetChecked(DxutDialog dialog, int id, bool checked)` — linha 1578
+- `dxutEnableDialogCaption(DxutDialog dialog, bool enable)` — linha 1579
+- `bool result = dxutIsDialogCaptionEnabled(DxutDialog dialog)` — linha 1580
+- `dxutSetDialogMinimized(DxutDialog dialog, bool minimized)` — linha 1581
+- `bool result = dxutIsDialogMinimized(DxutDialog dialog)` — linha 1582
+- `dxutDeleteControl(DxutDialog dialog, int id)` — linha 1583
+- `dxutDeleteDialog(DxutDialog dialog)` — linha 1584
+- `dxutSetFocusOnControl(DxutDialog dialog, int id)` — linha 1585
+- `dxutSetControlSize(DxutDialog dialog, int id, int sizeX, int sizeY)` — linha 1586
+- `int sizeX, int sizeY = dxutGetControlSize(DxutDialog dialog, int id)` — linha 1587
+- `dxutSetControlPos(DxutDialog dialog, int id, int posX, int posY)` — linha 1588
+- `int posX, int posY = dxutGetControlPos(DxutDialog dialog, int id)` — linha 1589
+- `dxutSetCheckboxColor(DxutDialog dialog, int id, uint color)` — linha 1590
+- `bool result = dxutIsDialogExists(DxutDialog dialog)` — linha 1591
+- `uint settingsPtr = sampGetServerSettingsPtr()` — linha 1592
+- `uint poolsPtr = sampGetSampPoolsPtr()` — linha 1593
+- `uint chatPtr = sampGetChatInfoPtr()` — linha 1594
+- `uint inputPtr = sampGetInputInfoPtr()` — linha 1595
+- `uint dialogPtr = sampGetDialogInfoPtr()` — linha 1596
+- `uint kill = sampGetKillInfoPtr()` — linha 1597
+- `uint miscPtr = sampGetMiscInfoPtr()` — linha 1598
+- `uint tdpoolPtr = sampGetTextdrawPoolPtr()` — linha 1599
+- `int objpoolPtr = sampGetObjectPoolPtr()` — linha 1600
+- `uint gzpoolPtr = sampGetGangzonePoolPtr()` — linha 1601
+- `uint tlabelpoolPtr = sampGetTextlabelPoolPtr()` — linha 1602
+- `uint playerpoolPtr = sampGetPlayerPoolPtr()` — linha 1603
+- `uint vehpoolPtr = sampGetVehiclePoolPtr()` — linha 1604
+- `uint pickuppoolPtr = sampGetPickupPoolPtr()` — linha 1605
+- `sampStorePlayerOnfootData(int id, uint dstBuffer)` — linha 1606
+- `sampStorePlayerIncarData(int id, uint dstBuffer)` — linha 1607
+- `sampStorePlayerPassengerData(int id, uint dstBuffer)` — linha 1608
+- `sampStorePlayerTrailerData(int id, uint dstBuffer)` — linha 1609
+- `sampStorePlayerAimData(int id, uint dstBuffer)` — linha 1610
+- `sampSendRconCommand(zstring cmd)` — linha 1611
+- `sampSendOnfootData(uint dataPtr)` — linha 1612
+- `sampSendIncarData(uint dataPtr)` — linha 1613
+- `sampSendPassengerData(uint dataPtr)` — linha 1614
+- `sampSendAimData(uint dataPtr)` — linha 1615
+- `sampSendBulletData(uint dataPtr)` — linha 1616
+- `sampSendTrailerData(uint dataPtr)` — linha 1617
+- `sampSendUnoccupiedData(uint dataPtr)` — linha 1618
+- `sampSendSpectatorData(uint dataPtr)` — linha 1619
+- `sampSendClickPlayer(int id, int source)` — linha 1620
+- `sampSendDialogResponse(int id, int button, int listitem, zstring input)` — linha 1621
+- `sampSendClickTextdraw(int id)` — linha 1622
+- `sampSendGiveDamage(int id, float damage, int weapon, int bodypart)` — linha 1623
+- `sampSendTakeDamage(int id, float damage, int weapon, int bodypart)` — linha 1624
+- `sampSendEditObject(bool playerObject, int objectId, int response, float posX, float posY, float posZ, float rotX, float rotY, float rotZ)` — linha 1625
+- `sampSendEditAttachedObject(int response, int index, int model, int bone, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ)` — linha 1626
+- `sampSendInteriorChange(int id)` — linha 1627
+- `sampSendRequestSpawn()` — linha 1628
+- `sampSendPickedUpPickup(int id)` — linha 1629
+- `sampSendMenuSelectRow(int id)` — linha 1630
+- `sampSendMenuQuit()` — linha 1631
+- `sampSendVehicleDestroyed(int id)` — linha 1632
+- `bool result = sampIsScoreboardOpen()` — linha 1633
+- `sampToggleScoreboard(bool show)` — linha 1634
+- `zstring text = sampGetDialogText()` — linha 1635
+- `zstring caption = sampGetDialogCaption()` — linha 1636
+- `sampSetDialogClientside(bool clientside)` — linha 1637
+- `bool result = sampIsDialogClientside()` — linha 1638
+- `bool result = sampIsChatVisible()` — linha 1639
+- `int mode = sampGetChatDisplayMode()` — linha 1640
+- `sampSetChatDisplayMode(int mode)` — linha 1641
+- `pauseScmThread(uint thread)` — linha 1642
+- `resumeScmThread(uint thread)` — linha 1643
+- `bool value = raknetBitStreamReadBool(Bitstream bs)` — linha 1644
+- `int value = raknetBitStreamReadInt8(Bitstream bs)` — linha 1645
+- `int value = raknetBitStreamReadInt16(Bitstream bs)` — linha 1646
+- `int value = raknetBitStreamReadInt32(Bitstream bs)` — linha 1647
+- `float value = raknetBitStreamReadFloat(Bitstream bs)` — linha 1648
+- `raknetBitStreamReadBuffer(Bitstream bs, uint dest, uint size)` — linha 1649
+- `string value = raknetBitStreamReadString(Bitstream bs, uint size)` — linha 1650
+- `raknetBitStreamResetReadPointer(Bitstream bs)` — linha 1651
+- `raknetBitStreamResetWritePointer(Bitstream bs)` — linha 1652
+- `raknetBitStreamIgnoreBits(Bitstream bs, int amount)` — linha 1653
+- `raknetBitStreamSetWriteOffset(Bitstream bs, int offset)` — linha 1654
+- `raknetBitStreamSetReadOffset(Bitstream bs, int offset)` — linha 1655
+- `uint value = raknetBitStreamGetNumberOfBitsUsed(Bitstream bs)` — linha 1656
+- `uint value = raknetBitStreamGetNumberOfBytesUsed(Bitstream bs)` — linha 1657
+- `uint value = raknetBitStreamGetNumberOfUnreadBits(Bitstream bs)` — linha 1658
+- `int value = raknetBitStreamGetWriteOffset(Bitstream bs)` — linha 1659
+- `int value = raknetBitStreamGetReadOffset(Bitstream bs)` — linha 1660
+- `uint value = raknetBitStreamGetDataPtr(Bitstream bs)` — linha 1661
+- `zstring string = raknetBitStreamDecodeString(Bitstream bs, int size)` — linha 1662
+- `raknetBitStreamEncodeString(Bitstream bs, zstring string)` — linha 1663
+- `raknetEmulRpcReceiveBitStream(int rpc, Bitstream bs)` — linha 1664
+- `raknetEmulPacketReceiveBitStream(int packet, Bitstream bs)` — linha 1665
+- `zstring name = raknetGetRpcName(int rpc)` — linha 1666
+- `zstring name = raknetGetPacketName(int packet)` — linha 1667
+- `bool result = setSampfuncsGlobalVar(zstring var, int value)` — linha 1668
+- `bool result, int value = getSampfuncsGlobalVar(zstring var)` — linha 1669
+- `sampCreate3dTextEx(int id, zstring text, uint color, float posX, float posY, float posZ, float distance, bool ignoreWalls, int playerId, int vehicleId)` — linha 1670
+- `zstring string, uint color, float posX, float posY, float posZ, float distance, bool ignoreWalls, int playerId, int vehicleId = sampGet3dTextInfoById(int id)` — linha 1671
+- `sampSet3dTextString(int id, zstring text)` — linha 1672
+- `sampTextdrawCreate(int id, zstring text, float posX, float posY)` — linha 1673
+- `sampTextdrawSetBoxColorAndSize(int id, int box, uint color, float sizeX, float sizeY)` — linha 1674
+- `sampTextdrawSetAlign(int id, int align)` — linha 1675
+- `sampTextdrawSetProportional(int id, int proportional)` — linha 1676
+- `sampTextdrawSetStyle(int id, int style)` — linha 1677
+- `sampTextdrawSetShadow(int id, int shadow, uint color)` — linha 1678
+- `sampTextdrawSetOutlineColor(int id, int outline, uint color)` — linha 1679
+- `sampTextdrawSetModelRotationZoomVehColor(int id, int model, float rotX, float rotY, float rotZ, float zoom, int clr1, int clr2)` — linha 1680
+- `sampTextdrawSetString(int id, zstring text)` — linha 1681
+- `sampTextdrawSetPos(int id, float posX, float posY)` — linha 1682
+- `sampTextdrawSetLetterSizeAndColor(int id, float letSizeX, float letSizeY, uint color)` — linha 1683
+- `int box, uint color, float sizeX, float sizeY = sampTextdrawGetBoxEnabledColorAndSize(int id)` — linha 1684
+- `int align = sampTextdrawGetAlign(int id)` — linha 1685
+- `int prop = sampTextdrawGetProportional(int id)` — linha 1686
+- `int style = sampTextdrawGetStyle(int id)` — linha 1687
+- `int shadow, uint color = sampTextdrawGetShadowColor(int id)` — linha 1688
+- `int outline, uint color = sampTextdrawGetOutlineColor(int id)` — linha 1689
+- `int model, float rotX, float rotY, float rotZ, float zoom, int clr1, int clr2 = sampTextdrawGetModelRotationZoomVehColor(int id)` — linha 1690
+- `zstring text = sampTextdrawGetString(int id)` — linha 1691
+- `float posX, float posY = sampTextdrawGetPos(int id)` — linha 1692
+- `float letSizeX, float letSizeY, uint color = sampTextdrawGetLetterSizeAndColor(int id)` — linha 1693
+- `bool result = sampTextdrawIsExists(int id)` — linha 1694
+- `sampTextdrawDelete(int id)` — linha 1695
+- `bool result = isSampfuncsGlobalVarDefined(zstring var)` — linha 1696
+- `bool read, bool write = getSampfuncsGlobalVarAccessForThread(zstring var, uint thread)` — linha 1697
+- `runSampfuncsConsoleCommand(zstring cmd)` — linha 1698
+- `bool result = sampfuncsRegisterConsoleCommand(zstring cmd, function func)` — linha 1699
+- `bool result = sampfuncsUnregisterConsoleCommand(zstring cmd)` — linha 1700
+- `uint thread = createScmThreadAtPointer(uint pointer, table args)` — linha 1701
+- `setScmThreadLocalVar(uint thread, int var, any value)` — linha 1702
+- `int value = getScmThreadLocalVar(uint thread, int var)` — linha 1703
+- `destroyScmThread(uint thread)` — linha 1704
+- `restartScmThread(uint thread, table args)` — linha 1705
+- `bool result = isSampfuncsConsoleActive()` — linha 1706
+- `sampSetClientCommandDescription(zstring cmd, zstring text)` — linha 1707
+- `setSampfuncsConsoleCommandDescription(zstring cmd, zstring text)` — linha 1708
+- `sampForceVehicleSync(int id)` — linha 1709
+- `sampForceUnoccupiedSyncSeatId(int id, int seatId)` — linha 1710
+- `sampForceOnfootSync()` — linha 1711
+- `sampForceAimSync()` — linha 1712
+- `sampForceTrailerSync(int id)` — linha 1713
+- `sampForcePassengerSyncSeatId(int id, int seatId)` — linha 1714
+- `sampForceStatsSync()` — linha 1715
+- `sampForceWeaponsSync()` — linha 1716
+- `int id = sampGetMaxPlayerId(bool streamed)` — linha 1717
+- `int count = sampGetPlayerCount(bool streamed)` — linha 1718
+- `sampProcessChatInput(zstring text)` — linha 1719
+- `bool result = sampIsChatCommandDefined(zstring cmd)` — linha 1720
+- `bool result = isSampfuncsConsoleCommandDefined(zstring cmd)` — linha 1721
+- `int version = getCleoLibraryVersion()` — linha 1722
+## Functions
+
+- `float x, float y, float z, float w = getObjectQuaternion(Object object)` — linha 1726
+- `setObjectQuaternion(Object object, float x, float y, float z, float w)` — linha 1727
+- `float x, float y, float z, float w = getVehicleQuaternion(Vehicle car)` — linha 1728
+- `setVehicleQuaternion(Vehicle car, float x, float y, float z, float w)` — linha 1729
+- `float x, float y, float z, float w = getCharQuaternion(Ped ped)` — linha 1730
+- `setCharQuaternion(Ped ped, float x, float y, float z, float w)` — linha 1731
+- `AudioStream handle = loadAudioStream(zstring audio)` — linha 1732
+- `setAudioStreamState(AudioStream handle, int state)` — linha 1733
+- `releaseAudioStream(AudioStream handle)` — linha 1734
+- `double length = getAudioStreamLength(AudioStream handle)` — linha 1735
+- `int state = getAudioStreamState(AudioStream handle)` — linha 1736
+- `float volume = getAudioStreamVolume(AudioStream audio)` — linha 1737
+- `setAudioStreamVolume(AudioStream audio, float volume)` — linha 1738
+- `setAudioStreamLooped(AudioStream audio, bool loop)` — linha 1739
+- `AudioStream handle = load3dAudioStream(zstring audio)` — linha 1740
+- `setPlay3dAudioStreamAtCoordinates(AudioStream handle, float posX, float posY, float posZ)` — linha 1741
+- `setPlay3dAudioStreamAtObject(AudioStream audio, Object object)` — linha 1742
+- `setPlay3dAudioStreamAtChar(AudioStream audio, Ped ped)` — linha 1743
+- `setPlay3dAudioStreamAtCar(AudioStream audio, Vehicle car)` — linha 1744
+- `AudioStream handle = loadAudioStreamFromMemory(uint address, uint size)` — linha 1745
+- `AudioStream handle = load3dAudioStreamFromMemory(uint address, uint size)` — linha 1746
+- `renderDrawLine(float pos1X, float pos1Y, float pos2X, float pos2Y, float width, uint color)` — linha 1747
+- `renderDrawBox(float posX, float posY, float sizeX, float sizeY, uint color)` — linha 1748
+- `renderDrawBoxWithBorder(float posX, float posY, float sizeX, float sizeY, uint color, float bsize, uint bcolor)` — linha 1749
+- `float length = renderGetFontDrawTextLength(DxFont font, zstring text, [bool ignoreColorTags=false])` — linha 1750
+- `float height = renderGetFontDrawHeight(DxFont font)` — linha 1751
+- `uint index = renderGetFontCharIndexAt(DxFont font, string text, float x, [bool ignoreColorTags=false])` — linha 1752
+- `float width = renderGetFontCharWidth(DxFont font, string char)` — linha 1753
+- `float width = renderGetFontCharWidth(DxFont font, uint char)` — linha 1754
+- `DxFont font = renderCreateFont(zstring font, int height, uint flags, [uint charset])` — linha 1755
+- `renderReleaseFont(DxFont font)` — linha 1756
+- `renderFontDrawText(DxFont font, zstring text, float posX, float posY, uint color, [bool ignoreColorTags=false])` — linha 1757
+- `renderDrawPolygon(float posX, float posY, float sizeX, float sizeY, int corners, float rotation, uint color)` — linha 1758
+- `DxTexture texture = renderLoadTextureFromFile(zstring file)` — linha 1759
+- `renderReleaseTexture(DxTexture texture)` — linha 1760
+- `renderDrawTexture(DxTexture texture, float posX, float posY, float sizeX, float sizeY, float rotation, uint color)` — linha 1761
+- `renderBegin(int type)` — linha 1762
+- `renderEnd()` — linha 1763
+- `renderColor(uint color)` — linha 1764
+- `renderVertex(float vX, float vY)` — linha 1765
+- `renderSetTexCoord(float posX, float posY)` — linha 1766
+- `renderBindTexture(DxTexture texture)` — linha 1767
+- `uint struct = renderGetTextureStruct(DxTexture texture)` — linha 1768
+- `uint sprite = renderGetTextureSprite(DxTexture texture)` — linha 1769
+- `uint sizeX, uint sizeY = renderGetTextureSize(DxTexture texture)` — linha 1770
+- `renderSetRenderState(int state, uint value)` — linha 1771
+- `DxTexture texture = renderLoadTextureFromFileInMemory(uint pointer, uint size)` — linha 1772
+- `script_version_number(int version)` — linha 1773
+- `script_version(string version)` — linha 1774
+- `script_name(string name)` — linha 1775
+- `script_description(string description)` — linha 1776
+- `script_authors(string author, ...)` — linha 1777
+- `script_author(string author)` — linha 1778
+- `script_dependencies(string name, ...)` — linha 1779
+- `script_moonloader(int version)` — linha 1780
+- `LuaScript s = thisScript()` — linha 1781
+- `wait(int time)` — linha 1782
+- `print(any value, ...)` — linha 1783
+- `int value = getGameGlobal(int index)` — linha 1784
+- `setGameGlobal(int index, int value)` — linha 1785
+- `uint ptr = getGameGlobalPtr(int index)` — linha 1786
+- `bool loaded = isSampfuncsLoaded()` — linha 1787
+- `bool loaded = isCleoLoaded()` — linha 1788
+- `bool loaded = isSampLoaded()` — linha 1789
+- `bool state = isKeyDown(int keyId)` — linha 1790
+- `reloadScripts()` — linha 1791
+- `bool status = isOpcodesAvailable()` — linha 1792
+- `int i = representFloatAsInt(float f)` — linha 1793
+- `float i = representIntAsFloat(int i)` — linha 1794
+- `setGxtEntry(string key, string text)` — linha 1795
+- `string key = setFreeGxtEntry(string text)` — linha 1796
+- `string key = getFreeGxtKey()` — linha 1797
+- `string text = getGxtText(string key)` — linha 1798
+- `clearGxtEntry(string key)` — linha 1799
+- `bool active = isPauseMenuActive()` — linha 1800
+- `bool foreground = isGameWindowForeground()` — linha 1801
+- `int major, int minor, int majorRev, int minorRev, int game, int region, bool steam, bool cracked = getGameVersion()` — linha 1802
+- `int version = getMoonloaderVersion()` — linha 1803
+- `double time = localClock()` — linha 1804
+- `freeTextures()` — linha 1805
+- `string path = getWorkingDirectory()` — linha 1806
+- `string path = getGameDirectory()` — linha 1807
+- `useRenderCommands(bool enable)` — linha 1808
+- `writeMemory(uint address, uint size, int value, bool virtualProtect)` — linha 1809
+- `int value = readMemory(uint address, uint size, bool virtualProtect)` — linha 1810
+- `bool result, uint handle = loadDynamicLibrary(string library)` — linha 1811
+- `freeDynamicLibrary(uint handle)` — linha 1812
+- `bool result, uint proc = getDynamicLibraryProcedure(string proc, uint handle)` — linha 1813
+- `bool result = doesFileExist(string file)` — linha 1814
+- `bool result = doesDirectoryExist(string directory)` — linha 1815
+- `bool result = createDirectory(string directory)` — linha 1816
+- `float val = popFloat()` — linha 1817
+- `bool result = isGameVersionOriginal()` — linha 1818
+- `uint memory = allocateMemory(uint size)` — linha 1819
+- `freeMemory(uint memory)` — linha 1820
+- `Filesearch handle, string name = findFirstFile(string mask)` — linha 1821
+- `string file = findNextFile(Filesearch handle)` — linha 1822
+- `findClose(Filesearch handle)` — linha 1823
+- `bool result, Ped ped = findAllRandomCharsInSphere(float posX, float posY, float posZ, float radius, bool findNext, bool skipDead)` — linha 1824
+- `bool result, Vehicle car = findAllRandomVehiclesInSphere(float posX, float posY, float posZ, float radius, bool findNext, bool skipWrecked)` — linha 1825
+- `bool result, Object object = findAllRandomObjectsInSphere(float posX, float posY, float posZ, float radius, bool findNext)` — linha 1826
+- `uint ptr = getCharPointer(Ped ped)` — linha 1827
+- `uint ptr = getCarPointer(Vehicle car)` — linha 1828
+- `uint struct = getObjectPointer(Object object)` — linha 1829
+- `int returnValue = callFunction(uint address, int params, int pop, ...)` — linha 1830
+- `int returnValue = callMethod(uint address, int struct, int params, int pop, ...)` — linha 1831
+- `Vehicle car, Ped ped = storeClosestEntities(Ped ped)` — linha 1832
+- `switchCarEngine(Vehicle car, bool state)` — linha 1833
+- `bool result, float posX, float posY, float posZ = getTargetBlipCoordinates()` — linha 1834
+- `int gears = getCarNumberOfGears(Vehicle car)` — linha 1835
+- `int gear = getCarCurrentGear(Vehicle car)` — linha 1836
+- `bool state = isCarSirenOn(Vehicle car)` — linha 1837
+- `bool state = isCarEngineOn(Vehicle car)` — linha 1838
+- `printHelpString(string text)` — linha 1839
+- `printStyledString(string text, int time, int style)` — linha 1840
+- `printString(string text, int time)` — linha 1841
+- `printStringNow(string text, int time)` — linha 1842
+- `bool result, Ped ped = getCharPlayerIsTargeting(Player player)` — linha 1843
+- `GxtString name = getNameOfVehicleModel(Model modelId)` — linha 1844
+- `bool result = testCheat(string text)` — linha 1845
+- `bool result = spawnVehicleByCheating(Model modelId)` — linha 1846
+- `Ped handle = getCharPointerHandle(uint ptr)` — linha 1847
+- `Vehicle handle = getVehiclePointerHandle(uint ptr)` — linha 1848
+- `Object handle = getObjectPointerHandle(uint ptr)` — linha 1849
+- `bool result, table colPoint = processLineOfSight(float originX, float originY, float originZ, float targetX, float targetY, float targetZ, [bool checkSolid=true], [bool car=false], [bool ped=false], [bool object=false], [bool particle=false], [bool seeThrough=false], [bool ignoreSomeObjects=false], [bool shootThrough=false])` — linha 1850
+- `bool result = setClipboardText(string text)` — linha 1851
+- `string text = getClipboardText()` — linha 1852
+- `int value = getStructElement(uint struct, int offset, uint size, [bool unprotect=false])` — linha 1853
+- `setStructElement(uint struct, int offset, uint size, int value, [bool unprotect=false])` — linha 1854
+- `float w, float x, float y, float z = convertMatrixToQuaternion(float rightX, float rightY, float rightZ, float frontX, float frontY, float frontZ, float upX, float upY, float upZ)` — linha 1855
+- `float rightX, float rightY, float rightZ, float frontX, float frontY, float frontZ, float upX, float upY, float upZ = convertQuaternionToMatrix(float w, float x, float y, float z)` — linha 1856
+- `float wposX, float wposY = convert3DCoordsToScreen(float posX, float posY, float posZ)` — linha 1857
+- `setGameKeyState(int key, int state)` — linha 1858
+- `int posX, int posY = getCursorPos()` — linha 1859
+- `float gposX, float gposY = convertWindowScreenCoordsToGameScreenCoords(float wposX, float wposY)` — linha 1860
+- `float wposX, float wposY = convertGameScreenCoordsToWindowScreenCoords(float gposX, float gposY)` — linha 1861
+- `float posX, float posY, float posZ = convertScreenCoordsToWorld3D(float posX, float posY, float depth)` — linha 1862
+- `uint handle = getModuleHandle(string module)` — linha 1863
+- `uint address = getModuleProcAddress(string module, string proc)` — linha 1864
+- `setVirtualKeyDown(int vkey, bool down)` — linha 1865
+- `setCharKeyDown(int ckey, bool down)` — linha 1866
+- `int index = downloadUrlToFile(string url, string file, function statusCallback)` — linha 1867
+- `bool state = isKeyJustPressed(int key)` — linha 1868
+- `bool result, float x, float y, float z, float w, float h = convert3DCoordsToScreenEx(float posX, float posY, float posZ, [bool checkMin=false], [bool checkMax=false])` — linha 1869
+- `float value = getStructFloatElement(uint struct, int offset, [bool unprotect=false])` — linha 1870
+- `setStructFloatElement(uint struct, int offset, float value, [bool unprotect=false])` — linha 1871
+- `bool state = wasKeyPressed(int key)` — linha 1872
+- `bool state = wasKeyReleased(int key)` — linha 1873
+- `int delta = getMousewheelDelta()` — linha 1874
+- `consumeWindowMessage([bool game=true], [bool scripts=true])` — linha 1875
+- `addEventHandler(string eventName, function callback)` — linha 1876
+- `bool paused = isGamePaused()` — linha 1877
+- `double time = gameClock()` — linha 1878
+- `script_properties(string property, ...)` — linha 1879
+- `script_url(string url)` — linha 1880
+- `any imports = import(string filename)` — linha 1881
+- `string json = encodeJson(table data)` — linha 1882
+- `table data = decodeJson(string json)` — linha 1883
+- `showCursor(bool show, [bool lockControls])` — linha 1884
+- `lockPlayerControl(bool lock)` — linha 1885
+- `bool locked = isPlayerControlLocked()` — linha 1886
+- `bool result = setBlipCoordinates(Marker blip, float x, float y, float z)` — linha 1887
+- `bool result = setTargetBlipCoordinates(float x, float y, float z)` — linha 1888
+- `bool result = placeWaypoint(float x, float y, float z)` — linha 1889
+- `bool result = removeWaypoint()` — linha 1890
+- `string path = getFolderPath(int csidl)` — linha 1891
+- `float value = getTimeStepValue()` — linha 1892
+- `uint devicePtr = getD3DDevicePtr()` — linha 1893
+- `table objects = getAllObjects()` — linha 1894
+- `table peds = getAllChars()` — linha 1895
+- `table vehicles = getAllVehicles()` — linha 1896
+- `float value = getGameGlobalFloat(int index)` — linha 1897
+- `setGameGlobalFloat(int index, float value)` — linha 1898
+- `LuaScript s = script.load(string file)` — linha 1899
+- `LuaScript s = script.find(string name)` — linha 1900
+- `table list = script.list()` — linha 1901
+- `LuaScript script = script.get(int scriptId)` — linha 1902
+- `table data = inicfg.load([table default], [string file])` — linha 1904
+- `bool result = inicfg.save(table data, [string file])` — linha 1905
+- `int value = memory.read(uint address, uint size, [bool unprotect=false])` — linha 1906
+- `memory.write(uint address, int value, uint size, [bool unprotect=false])` — linha 1907
+- `int value = memory.getint8(uint address, [bool unprotect=false])` — linha 1908
+- `bool result = memory.setint8(uint address, int byte, [bool unprotect=false])` — linha 1909
+- `int value = memory.getint16(uint address, [bool unprotect=false])` — linha 1910
+- `bool result = memory.setint16(uint address, int word, [bool unprotect=false])` — linha 1911
+- `int value = memory.getint32(uint address, [bool unprotect=false])` — linha 1912
+- `bool result = memory.setint32(uint address, int dword, [bool unprotect=false])` — linha 1913
+- `double value = memory.getint64(uint address, [bool unprotect=false])` — linha 1914
+- `bool result = memory.setint64(uint address, double qword, [bool unprotect=false])` — linha 1915
+- `int value = memory.getuint8(uint address, [bool unprotect=false])` — linha 1916
+- `bool result = memory.setuint8(uint address, int byte, [bool unprotect=false])` — linha 1917
+- `int value = memory.getuint16(uint address, [bool unprotect=false])` — linha 1918
+- `bool result = memory.setuint16(uint address, int word, [bool unprotect=false])` — linha 1919
+- `int value = memory.getuint32(uint address, [bool unprotect=false])` — linha 1920
+- `bool result = memory.setuint32(uint address, int dword, [bool unprotect=false])` — linha 1921
+- `double value = memory.getuint64(uint address, [bool unprotect=false])` — linha 1922
+- `bool result = memory.setuint64(uint address, double qword, [bool unprotect=false])` — linha 1923
+- `float value = memory.getfloat(uint address, [bool unprotect=false])` — linha 1924
+- `bool result = memory.setfloat(uint address, float value, [bool unprotect=false])` — linha 1925
+- `double value = memory.getdouble(uint address, [bool unprotect=false])` — linha 1926
+- `bool result = memory.setdouble(uint address, double value, [bool unprotect=false])` — linha 1927
+- `int oldProtection = memory.unprotect(uint address, uint size)` — linha 1928
+- `int oldProtection = memory.protect(uint address, uint size, int newProtection)` — linha 1929
+- `memory.copy(uint destAddress, uint srcAddress, uint size, [bool unprotect=false])` — linha 1930
+- `bool result = memory.compare(uint address1, uint address2, uint size, [bool unprotect=false])` — linha 1931
+- `string str = memory.tostring(uint address, [uint size], [bool unprotect=false])` — linha 1932
+- `string hexstr = memory.tohex(uint address, uint size, [bool unprotect=false])` — linha 1933
+- `bool result = memory.hex2bin(string hex, uint dstAddress, uint size)` — linha 1934
+- `string bin = memory.hex2bin(string hex)` — linha 1935
+- `memory.fill(uint address, int value, uint size, [bool unprotect=false])` — linha 1936
+- `uint address = memory.strptr(string str)` — linha 1937
+- `LuaThread thread = lua_thread.create(function func, ...)` — linha 1938
+- `LuaThread thread = lua_thread.create_suspended(function func)` — linha 1939
+## Events
+
+- `main()` — linha 1943
+- `onExitScript(bool quitGame)` — linha 1944
+- `onScriptMessage(string msg, LuaScript script)` — linha 1945
+- `onSystemMessage(string msg, int type, LuaScript script)` — linha 1946
+- `onQuitGame()` — linha 1947
+- `onSystemInitialized()` — linha 1948
+- `onScriptLoad(LuaScript script)` — linha 1949
+- `onScriptTerminate(LuaScript script, bool quitGame)` — linha 1950
+- `bool process, int id, Bitstream bitStream = onReceiveRpc(int id, Bitstream bitStream)` — linha 1951
+- `bool process, int id, Bitstream bitStream = onReceivePacket(int id, Bitstream bitStream)` — linha 1952
+- `bool process, int id, Bitstream bitStream, int priority, int reliability, int orderingChannel, bool shiftTs = onSendRpc(int id, Bitstream bitStream, int priority, int reliability, int orderingChannel, bool shiftTs)` — linha 1953
+- `bool process, int id, Bitstream bitStream, int priority, int reliability, int orderingChannel = onSendPacket(int id, Bitstream bitStream, int priority, int reliability, int orderingChannel)` — linha 1954
+- `onWindowMessage(uint msg, uint wparam, int lparam)` — linha 1955
+- `onStartNewGame(int missionPackNumber)` — linha 1956
+- `table newSaveData = onSaveGame(table saveData)` — linha 1957
+- `onLoadGame(table saveData)` — linha 1958
+- `onD3DDeviceLost()` — linha 1959
+- `onD3DDeviceReset()` — linha 1960
+- `onD3DPresent()` — linha 1961
