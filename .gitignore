@@ -1,5 +1,10 @@
 .vs/
-bin/
+bin/*
+!bin/Host/
+bin/Host/*
+!bin/Host/Release/
+bin/Host/Release/*
+!bin/Host/Release/McpServer.exe
 obj/
 *.user
 __pycache__/

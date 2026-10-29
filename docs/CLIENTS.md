@@ -38,7 +38,7 @@ absolutos do Windows para `gta_load_script`/`gta_run_script`.
 ## Configurar
 
 Use as instruções do cliente que você escolheu: Codex ou Claude Code.
-Na raiz do repositório, após compilar, em PowerShell:
+Na raiz do repositório, usando o EXE compilado que já está incluído, em PowerShell:
 
 ```powershell
 $mcpExe = (Resolve-Path '.\bin\Host\Release\McpServer.exe').Path

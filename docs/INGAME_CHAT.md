@@ -27,15 +27,24 @@ valores antigos recebem `*` se a atualização falhar ou tiver mais de três min
 Requer MoonLoader, a biblioteca **imgui/MoonImGui** instalada (esta implementação
 não usa mimgui), Python 3 e Codex CLI autenticado, com o MCP do GTA configurado.
 Os scripts `mcp_bridge.lua` e a versão 3 do ASI devem estar instalados.
+Extraia o pacote principal e o complemento Codex Chat da release na raiz do GTA.
+O complemento instala somente o painel Lua e sua biblioteca. O relay Python,
+o EXE e a documentação permanecem no repositório clonado; execute os comandos
+abaixo a partir da raiz desse repositório.
 
-1. Copie `moonloader/lib/mcp_chat_markdown.lua` para `moonloader/lib` e
-   `moonloader/examples/mcp_ingame_chat.lua` para a pasta `moonloader` do
-   GTA, onde será carregado automaticamente ao iniciar o jogo. Se o GTA já
-   estiver aberto, carregue esse arquivo uma única vez com `gta_load_script`.
+1. O ZIP do complemento já coloca `mcp_chat_markdown.lua` em `moonloader/lib`
+   e `mcp_ingame_chat.lua` em `moonloader`, para carregar com o GTA. Se o GTA já
+   estiver aberto, carregue o painel uma única vez com `gta_load_script`.
 2. Inicie o relay no PowerShell:
 
    ```powershell
    & '.\tools\start_ingame_chat.ps1' -GameRoot $env:GTA_SA_DIR
+   ```
+
+   Para informar os caminhos diretamente:
+
+   ```powershell
+   & '.\tools\start_ingame_chat.ps1' -GameRoot 'C:\path\to\GTA San Andreas' -Python 'C:\path\to\python.exe'
    ```
 
    O iniciador tem parâmetros `-GameRoot`, `-Python` e `-ProjectRoot` para outras instalações.

@@ -3,6 +3,9 @@
 A raiz versionável é a pasta que contém `McpServer.sln`. Manter código C++,
 Lua/Python/PowerShell, testes reutilizáveis, documentação offline, dependências
 distribuídas com suas licenças e `skills/gta-sa-memory`.
+O EXE compilado `bin/Host/Release/McpServer.exe` também é versionado, permitindo
+usar o servidor sem instalar ferramentas de compilação. ASI e Lua para o GTA
+são distribuídos nos ZIPs anexados às releases do GitHub.
 
 ## Caminhos
 
@@ -28,8 +31,9 @@ distribuídas com suas licenças e `skills/gta-sa-memory`.
 
 ## Arquivos locais
 
-O `.gitignore` exclui `.vs`, builds `bin/obj`, temporários, logs, bases IDA,
-backups, dados de execução do jogo e `.local`.
+O `.gitignore` exclui `.vs`, builds auxiliares em `bin/obj`, temporários, logs,
+bases IDA, backups, dados de execução do jogo e `.local`. Há uma exceção explícita
+para o EXE pronto em `bin/Host/Release/McpServer.exe`.
 
 Relatórios locais de testes com o jogo ficam em `.local/test-results`.
 O JSON original CME, com metadados da máquina do export,

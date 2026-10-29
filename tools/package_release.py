@@ -1,5 +1,6 @@
 """Package GroveMCP binaries and optional Codex chat from explicit file lists.
 
+ZIPs contain only files installed into GTA. The EXE stays in the repository.
 Does not build, install into GTA, publish, or include machine-local state.
 """
 import argparse
@@ -14,7 +15,15 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 EXPORTS = {'McpBridge_GetApiVersion', 'McpBridge_PollCommand',
            'McpBridge_ReportResult', 'McpBridge_ReportExecution'}
-SUFFIXES = {'.md', '.json', '.gz', '.lua', '.py', '.yaml'}
+GAME_FILES = {
+    'bin/GTA-SA/Release/McpServer.SA.asi': 'McpServer.SA.asi',
+    'moonloader/mcp_bridge.lua': 'moonloader/mcp_bridge.lua',
+    'moonloader/lib/mcp_runner.lua': 'moonloader/lib/mcp_runner.lua',
+}
+CHAT_FILES = {
+    'moonloader/examples/mcp_ingame_chat.lua': 'moonloader/mcp_ingame_chat.lua',
+    'moonloader/lib/mcp_chat_markdown.lua': 'moonloader/lib/mcp_chat_markdown.lua',
+}
 
 
 def pe_info(path, dll=False):
@@ -111,39 +120,28 @@ def add(files, source, destination=None):
     files[name] = path.read_bytes()
 
 
-def tree(files, directory):
-    for path in sorted((ROOT / directory).rglob('*')):
-        if path.is_file() and not any(p.startswith('.') or p == '__pycache__' for p in path.relative_to(ROOT).parts):
-            if path.suffix in SUFFIXES:
-                add(files, path.relative_to(ROOT).as_posix())
-
-
-def make_archive(output, version, component, files, metadata):
+def make_archive(output, files):
     for name in files:
         if Path(name).is_absolute() or '\\' in name or ':' in name or '..' in Path(name).parts:
             raise ValueError(f'Unsafe archive path: {name}')
         if any(part in ('.local','__pycache__','tests','obj') for part in Path(name).parts):
             raise ValueError(f'Local/test data in release: {name}')
-    manifest = {'project':'GroveMCP', 'version':version, 'component':component,
-                'bridge_protocol':3, 'metadata':metadata,
-                'files':[{'path':name, 'bytes':len(data), 'sha256':hashlib.sha256(data).hexdigest()}
-                         for name,data in sorted(files.items())]}
-    manifest_name = 'manifest.json' if component == 'runtime' else 'codex-chat-manifest.json'
-    files = dict(files)
-    files[manifest_name] = (json.dumps(manifest, ensure_ascii=False, indent=2)+'\n').encode('utf-8')
+        if Path(name).suffix not in ('.asi','.lua'):
+            raise ValueError(f'Only game components belong in the ZIP: {name}')
     with zipfile.ZipFile(output, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for name,data in sorted(files.items()):
-            info = zipfile.ZipInfo(f'GroveMCP-{version}/{name}', date_time=(1980,1,1,0,0,0))
+            info = zipfile.ZipInfo(name, date_time=(1980,1,1,0,0,0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             archive.writestr(info, data)
     with zipfile.ZipFile(output) as archive:
         if archive.testzip():
             raise ValueError('ZIP integrity check failed')
-        for record in manifest['files']:
-            payload = archive.read(f'GroveMCP-{version}/'+record['path'])
-            if hashlib.sha256(payload).hexdigest() != record['sha256']:
-                raise ValueError('Manifest checksum mismatch')
+        if set(archive.namelist()) != set(files):
+            raise ValueError('Unexpected files in ZIP')
+        for name,data in files.items():
+            if archive.read(name) != data:
+                raise ValueError('Archived file differs from its input')
     return {'name':output.name, 'bytes':output.stat().st_size,
             'sha256':hashlib.sha256(output.read_bytes()).hexdigest(), 'file_count':len(files)}
 
@@ -157,39 +155,26 @@ def main():
     version = args.version or (match.group(1) if match else None)
     if not version or not re.fullmatch(r'\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?', version):
         parser.error('A valid release version is required')
+    if not match or match.group(1) != version:
+        parser.error('Update the project README version to match the release')
     output = args.output.resolve()
     targets = [output/f'GroveMCP-{version}-windows-x86.zip', output/f'GroveMCP-{version}-codex-chat.zip']
     if any(p.exists() for p in targets):
         parser.error('Release archive already exists; choose a new output directory or version')
     exe = ROOT/'bin/Host/Release/McpServer.exe'
     asi = ROOT/'bin/GTA-SA/Release/McpServer.SA.asi'
-    metadata = {'server':check_server(exe,version), 'exe':pe_info(exe), 'asi':pe_info(asi,True)}
+    check_server(exe,version)
+    pe_info(exe)
+    pe_info(asi,True)
     core = {}
-    for name in ('bin/Host/Release/McpServer.exe','bin/GTA-SA/Release/McpServer.SA.asi',
-                 'moonloader/mcp_bridge.lua','moonloader/lib/mcp_runner.lua',
-                 'moonloader/examples/mcp_hello.lua','moonloader/examples/mcp_debug_probe.lua',
-                 'moonloader/examples/mcp_read_cj_health.lua','moonloader/examples/mcp_execution_test.lua',
-                 'tools/mcp_client.py','tools/gta_memory.py','tools/moonloader_docs.py',
-                 'AGENTS.md','CLAUDE.md','LICENSE','THIRD_PARTY_NOTICES.md',
-                 'docs/CLIENTS.md','docs/INGAME_CHAT.md'):
-        add(core,name)
-    for directory in ('docs/moonloader','docs/game-memory','skills/gta-sa-memory'):
-        tree(core,directory)
-    add(core,'third_party/nlohmann/LICENSE.MIT','licenses/nlohmann-json.LICENSE.MIT')
-    add(core,'third_party/plugin-sdk/LICENSE','licenses/plugin-sdk.LICENSE')
-    core['README.md'] = (ROOT/'docs/release/RUNTIME_README.md').read_text(encoding='utf-8').replace('@VERSION@',version).encode('utf-8')
+    for source,destination in GAME_FILES.items():
+        add(core,source,destination)
     chat = {}
-    for name in ('moonloader/examples/mcp_ingame_chat.lua','moonloader/lib/mcp_chat_markdown.lua',
-                 'tools/start_ingame_chat.ps1','tools/ingame_chat_relay.py',
-                 'tools/codex_chat_models.py','tools/codex_chat_usage.py','docs/INGAME_CHAT.md','LICENSE'):
-        add(chat,name)
-    chat['CODEX_CHAT.md'] = (ROOT/'docs/release/CHAT_README.md').read_text(encoding='utf-8').replace('@VERSION@',version).encode('utf-8')
+    for source,destination in CHAT_FILES.items():
+        add(chat,source,destination)
     output.mkdir(parents=True, exist_ok=True)
-    records = [make_archive(targets[0],version,'runtime',core,metadata),
-               make_archive(targets[1],version,'codex-chat',chat,{'requires':f'GroveMCP {version} runtime'})]
+    records = [make_archive(targets[0],core), make_archive(targets[1],chat)]
     (output/'SHA256SUMS.txt').write_text(''.join(r['sha256']+'  '+r['name']+'\n' for r in records),encoding='ascii')
-    (output/'RELEASE_NOTES.md').write_text(
-        (ROOT/'docs/release/RELEASE_NOTES.md').read_text(encoding='utf-8').replace('@VERSION@',version), encoding='utf-8')
     print(json.dumps({'version':version,'packages':records},indent=2))
 
 

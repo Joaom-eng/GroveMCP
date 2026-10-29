@@ -34,11 +34,23 @@ Cliente IA -> MCP stdio -> EXE -> named pipe -> ASI
 
 ## Pacotes da release
 
-O pacote principal contém os binários e scripts prontos para instalar. O chat
-experimental do Codex é distribuído como complemento opcional separado.
-Para gerar os ZIPs e hashes, consulte [docs/RELEASE.md](docs/RELEASE.md).
+Os pacotes publicados ficam na página [Releases do GroveMCP](https://github.com/Joaom-eng/GroveMCP/releases).
+Clone este repositório para uma pasta fixa: ele já inclui o servidor compilado
+em `bin/Host/Release/McpServer.exe`, as ferramentas e a documentação da IA.
+Não é necessário compilar para usar o projeto.
+
+Os ZIPs da release contêm somente os componentes instalados no GTA. Com o jogo
+fechado, extraia o pacote principal na raiz do GTA, mantendo a estrutura das
+pastas. Ele contém o ASI e a ponte Lua. O chat experimental do Codex é um ZIP
+opcional para extrair no mesmo local; seu relay Python permanece no repositório.
+Veja [docs/INGAME_CHAT.md](docs/INGAME_CHAT.md) para ativá-lo.
+Para quem mantém o projeto e precisa gerar os arquivos para publicação, veja
+[docs/RELEASE.md](docs/RELEASE.md).
 
 ## Compilar
+
+Esta etapa é opcional, para quem deseja alterar o código. O EXE já vem compilado
+no repositório, e o ASI compilado está no pacote principal da release.
 
 Abra `McpServer.sln`, **Release / GTA-SA**, com toolset v143 e Windows SDK.
 O ASI usa `PLUGIN_SDK_DIR`. O projeto `Host` não depende do Plugin-SDK para compilar.
@@ -54,9 +66,12 @@ o ASI para `scripts`. Compilar normalmente não encerra nem instala nada no jogo
 ## Instalar e testar
 
 1. Feche o GTA antes de substituir o ASI.
-2. Instale **uma única cópia** de `McpServer.SA.asi` em uma pasta do Modloader ou no diretório raiz do jogo.
-3. Instale o MoonLoader e copie `moonloader/mcp_bridge.lua` para `moonloader`,
-   e `moonloader/lib/mcp_runner.lua` para `moonloader/lib`.
+2. Com ASI Loader e MoonLoader instalados, extraia o pacote principal da release
+   na raiz do GTA. Ele coloca `McpServer.SA.asi` na raiz, `mcp_bridge.lua` em
+   `moonloader` e `mcp_runner.lua` em `moonloader/lib`.
+3. Se preferir instalar o ASI numa pasta do Modloader, mova-o para lá e mantenha
+   **uma única cópia**. O EXE permanece no repositório, fora da pasta do jogo.
+
 O exemplo `moonloader/examples/mcp_hello.lua` apenas escreve no log e espera um
 segundo. Coloque-o fora da varredura automática do MoonLoader, por exemplo em
 `GTA San Andreas/mcp_scripts/mcp_hello.lua`.
@@ -85,7 +100,7 @@ simulando o mundo quando está pausado.
 ## Codex e MCP
 
 Configure a entrada `gta_sa` no cliente, substituindo o caminho de exemplo pelo
-executável compilado na sua cópia do repositório:
+EXE pronto em `bin/Host/Release/McpServer.exe` da sua cópia do repositório:
 
 ```toml
 [mcp_servers.gta_sa]
@@ -148,6 +163,8 @@ parciais, usa overlapped I/O com timeout e espera o cancelamento antes de libera
 buffers. Clientes remotos do pipe são rejeitados.
 
 ## Testes
+
+Os testes abaixo fazem parte do código-fonte e não são incluídos nos ZIPs da release.
 
 ```powershell
 python .\tests\integration.py
