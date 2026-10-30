@@ -1,8 +1,54 @@
 # GroveMCP — versão 0.3.0
 
-Servidor MCP local em C++, com transporte `stdio`, plugin ASI e integração com
-MoonLoader. Permite carregar scripts Lua com o GTA em execução e executar módulos
-gerenciados que retornam dados em JSON.
+O GroveMCP conecta agentes de IA ao GTA San Andreas para ajudar a criar mods,
+experimentar ideias e investigar o comportamento do jogo enquanto ele está aberto.
+Você descreve o que quer fazer, e o agente pode escrever e executar scripts Lua,
+consultar informações do jogo e usar os resultados para orientar o próximo passo.
+
+Isso permite, por exemplo, pedir um texto na tela, criar um NPC ou consultar a
+vida de um personagem. Para depuração, os scripts também podem coletar dados ao
+longo do tempo e devolver resultados e erros ao agente.
+
+A integração com o jogo roda localmente no Windows e usa MoonLoader para executar
+os scripts. O MCP é o protocolo que permite ao agente acessar essas ferramentas.
+Veja a [configuração no Codex e no Claude Code](docs/CLIENTS.md) para conectar seu
+cliente; o [chat dentro do jogo](docs/INGAME_CHAT.md) é um complemento opcional
+específico do Codex.
+
+## Demonstração
+
+[▶ Assistir ao vídeo: texto na tela via MCP](docs/media/grovemcp-demo.mp4)
+
+Um exemplo de execução de script Lua pelo GroveMCP para mostrar um texto na tela
+com o GTA em execução.
+
+## Como funciona
+
+O agente acessa o servidor pelo cliente de IA. O servidor encaminha os pedidos
+ao plugin instalado no GTA, e a ponte Lua os recebe para executar os scripts
+pelo MoonLoader. Estados da execução, resultados e erros voltam pelo mesmo caminho.
+
+```mermaid
+flowchart TD
+    user[Você] <-->|Pedidos e respostas| client[Cliente de IA com suporte a MCP]
+    client <-->|MCP via stdio| host["Servidor local — McpServer.exe"]
+    subgraph game["GTA San Andreas — processo do jogo"]
+        asi["Plugin — McpServer.SA.asi"]
+        bridge["Ponte MoonLoader — mcp_bridge.lua"]
+        scripts["Scripts Lua — mods e consultas de depuração"]
+        asi <-->|Fila de comandos e funções exportadas| bridge
+        bridge -->|Carregamento ou execução gerenciada| scripts
+        scripts -->|Estado, dados e erros da execução gerenciada| bridge
+    end
+    host <-->|Named pipe local do Windows| asi
+```
+
+O EXE é um processo separado e pode ser reiniciado sem fechar o GTA. O ASI e a
+ponte Lua permanecem no jogo. Scripts convencionais são carregados pelo MoonLoader;
+a execução gerenciada acrescenta acompanhamento, retorno de dados em JSON e
+cancelamento pelo MCP.
+
+## Documentação
 
 Referência offline para escrever e depurar scripts:
 [docs/moonloader/README.md](docs/moonloader/README.md). Inclui o guia salvo do
@@ -21,16 +67,6 @@ Configuração portátil, arquivos ignorados e testes:
 Configuração no Codex e no Claude Code, com estado de validação e teste mínimo:
 [docs/CLIENTS.md](docs/CLIENTS.md). O núcleo MCP é independente do cliente;
 o chat F7 continua sendo uma integração experimental específica do Codex.
-
-```text
-Cliente IA -> MCP stdio -> EXE -> named pipe -> ASI
-                                               |
-                                       fila + exports C
-                                               |
-                                       mcp_bridge.lua
-                                               |
-                                       script.load(arquivo)
-```
 
 ## Pacotes da release
 
